@@ -1,0 +1,19 @@
+battle,name,date,n_candidates,n_checks,spread_km,median_pair_km,top_fit,leaders,wikidata_qid,wikidata_lat,wikidata_lon
+whalley,Battle of Whalley (Billingahoh),798,5,2,3.5,2.6,1.0,Billington,,,
+badon,Battle of Mount Badon,about 500,11,2,579.5,109.0,1.0,"Liddington Castle; Badbury Rings; Ringsbury Camp, Braydon; Arbury Hill, Northamptonshire",Q595320,51.38,-2.36
+brunanburh,Battle of Brunanburh,937,16,4,386.2,144.9,0.75,Bromborough; Londesborough; Nunburnholme,Q2246615,53.796373,-2.257319
+graupius,Battle of Mons Graupius,AD 83 or 84,7,2,142.0,46.8,0.75,Kempstone Hill; Hill of Megray; Raedykes camp,Q1127337,56.916667,-3.0
+boudica,Boudica's final battle ('Watling Street'),AD 60 or 61,12,3,324.7,128.9,1.0,"Cuttle Mill, Paulerspury; Church Stowe; Arbury Banks, Hertfordshire",,,
+camlann,Battle of Camlann,about 537,7,1,679.1,248.1,1.0,"Castlesteads (Camboglanna); Camelford, River Camel; Slaughterbridge; Salisbury; Camlan, near Mallwyd; Afon Gamlan",,,
+catraeth,Battle of Catraeth,about 600,1,0,0.0,0.0,,,Q3403266,54.377358,-1.630096
+arfderydd,Battle of Arfderydd,573,1,2,0.0,0.0,0.75,"Arthuret, near Longtown",Q2633662,55.01666667,-2.91666667
+degsastan,Battle of Degsastan,about 603,2,0,56.7,56.7,,,Q2712138,,
+maserfield,Battle of Maserfield,642,2,1,29.3,29.3,0.5,Oswestry; Forden,Q1818410,52.86,-3.054
+winwaed,Battle of the Winwaed,655,4,2,158.6,96.5,1.0,"Cock Beck, Leeds",,,
+nechtansmere,Battle of Dun Nechtain (Nechtansmere),685,5,2,89.0,4.1,0.75,"Rescobie Loch; Dunachton, Loch Insh",Q961243,56.63,-2.8
+assandun,Battle of Assandun,1016,3,2,59.8,56.1,1.0,Ashingdon,Q1704268,51.6028,0.6948
+edington,Battle of Edington (Ethandun),878,3,2,124.7,74.9,1.0,"Edington, Wiltshire",Q2305651,51.440277777,-2.242222222
+ellendun,Battle of Ellendun,825,3,1,53.5,51.0,0.5,Lydiard Park,Q1939977,51.525,-1.792
+tettenhall,Battle of Tettenhall (Wednesfield),910,2,2,6.2,6.2,0.5,Tettenhall; Wednesfield,Q2253682,52.583333,-2.133333
+hatfield,Battle of Hatfield Chase,633,2,1,41.6,41.6,1.0,Hatfield Chase; Cuckney ('High Hatfield'),Q1758473,53.585,-0.926
+heavenfield,Battle of Heavenfield,634,2,2,11.8,11.8,1.0,"Heavenfield, St Oswald's",Q956923,55.02,-2.1

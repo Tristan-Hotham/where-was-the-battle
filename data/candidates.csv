@@ -1,0 +1,89 @@
+battle,candidate,proposer,basis,source_url,lat,lon,precision,geocode
+whalley,Whalley village,"Anglo-Saxon Chronicle, 798: a great battle 'at Whalley in Northumbria'",chronicle,https://www.british-history.ac.uk/vch/lancs/vol6/pp349-360,53.82354,-2.40614,village,OS Open Names: Whalley (Village)
+whalley,Billington,"Symeon of Durham, Historia Regum: 'Billingahoh, near Walalege'",chronicle,https://www.british-history.ac.uk/node/44977,53.81809,-2.41156,village,OS Open Names: Billington (Village)
+whalley,Billington Moor,Wikipedia: Eardwulf 'fought a battle at Billington Moor',chronicle,"https://en.wikipedia.org/wiki/Billington,_Lancashire",53.8008,-2.43093,site,OS Open Names: Billington Moor (Other Landcover)
+whalley,Whalley Nab (Billingahoth hill),Victoria County History: the hill 'Billingahoth' of 798 is the summit 'now contracted simply to Whalley Nab',place-name,https://www.british-history.ac.uk/node/44977,53.81565,-2.40245,site,OS Open Names: Nab Wood (Woodland Or Forest)
+whalley,"Loe Hill, Winckley lowes",Local folklore reported by Rev. J. R. Luck (1896): Wada's followers buried in the mound,local tradition,https://www.themodernantiquarian.com/site/3015/loe-hill,53.83159,-2.44439,site,Grid reference SD 708 373 stated in the source
+badon,Bath,Geoffrey of Monmouth; Tim and Annette Burkitt,legend and place-name,https://en.wikipedia.org/wiki/Battle_of_Badon,51.3828,-2.35929,village,OS Open Names: Bath (City)
+badon,Bathampton Down,"Traditional, 'the hills around Bath'",tradition,https://en.wikipedia.org/wiki/Battle_of_Badon,51.38446,-2.32651,site,OS Open Names: Bathampton Down (Spot Height)
+badon,Little Solsbury Hill,"Listed as a possible location (Mick Baker, the case for Bath)",tradition,https://en.wikipedia.org/wiki/Solsbury_Hill,51.40959,-2.33498,site,"Atlas of Hillforts 3963: Little Solsbury Hill Camp, Bath and NE Somerset (Solsbury Hill, Batheaston; Little Solisbury Camp)"
+badon,Liddington Castle,"Susan Hirst, Geoffrey Ashe, Michael Wood (Badbury, OE Baddan byrig)",place-name and strategy,https://en.wikipedia.org/wiki/Battle_of_Badon,51.51583,-1.70066,site,"Atlas of Hillforts 388: Liddington Castle, Wiltshire (Badbury Camp)"
+badon,Badbury Rings,Edwin Guest (via Hutchins); David Cooper,place-name,https://en.wikipedia.org/wiki/Badbury_Rings,50.82639,-2.0523,site,"Atlas of Hillforts 3580: Badbury Rings, Dorset (Badbury Camp)"
+badon,"Ringsbury Camp, Braydon","Andrew Breeze (2020), reading Bradonici for Badonici",place-name,https://en.wikipedia.org/wiki/Battle_of_Badon,51.57961,-1.89333,site,"Atlas of Hillforts 399: Ringsbury Camp, Wiltshire"
+badon,"Bowden Hill, Linlithgow",William Forbes Skene,place-name,https://en.wikipedia.org/wiki/Battle_of_Badon,55.95176,-3.63906,site,"Atlas of Hillforts 1839: Bowden Hill, West Lothian (Bowdenhill)"
+badon,"Baumber, Lincolnshire",Thomas Green (Domesday Badeburg),place-name and archaeology,https://en.wikipedia.org/wiki/Battle_of_Badon,53.25119,-0.16879,village,OS Open Names: Baumber (Village)
+badon,"Arbury Hill, Northamptonshire",Bernard Mees,place-name,https://en.wikipedia.org/wiki/Battle_of_Badon,52.22418,-1.20989,site,"Atlas of Hillforts 781: Arbury Hill, Badby, Northamptonshire"
+badon,"Mynydd Baedan, Maesteg",Local lore,local tradition,https://en.wikipedia.org/wiki/Battle_of_Badon,51.55765,-3.63114,site,OS Open Names: Mynydd Baedan (Hill Or Mountain)
+badon,"Bowden Hill, Wiltshire",Local lore,local tradition,https://en.wikipedia.org/wiki/Battle_of_Badon,51.41047,-2.09523,village,OS Open Names: Bowden Hill (Village)
+brunanburh,Bromborough,Charters; Paul Cavill; Michael Livingston; Wirral Archaeology,place-name and archaeology,https://en.wikipedia.org/wiki/Battle_of_Brunanburh,53.33425,-2.9776,village,OS Open Names: Bromborough (Suburban Area)
+brunanburh,"Brackenwood, Bebington",Proposed as a site 'around' Bromborough,place-name,https://en.wikipedia.org/wiki/Battle_of_Brunanburh,53.34338,-3.02189,site,OS Open Names: Brackenwood Park (Other Landcover)
+brunanburh,Brimstage,Landscape survey placing Bruna's burh,landscape survey,https://en.wikipedia.org/wiki/Battle_of_Brunanburh,53.33747,-3.04493,village,OS Open Names: Brimstage (Hamlet)
+brunanburh,Barnsdale,Listed proposal,listed,https://en.wikipedia.org/wiki/Battle_of_Brunanburh,53.62193,-1.22871,area,OS Open Names: Barnsdale (Other Landcover)
+brunanburh,Brinsworth,Listed proposal,listed,https://en.wikipedia.org/wiki/Battle_of_Brunanburh,53.4068,-1.36825,village,OS Open Names: Brinsworth (Village)
+brunanburh,Leighton Bromswold,Listed proposal (Bromswold),listed,https://en.wikipedia.org/wiki/Battle_of_Brunanburh,52.36572,-0.36687,village,OS Open Names: Leighton Bromswold (Village)
+brunanburh,Burnley,"Local historians, later Thomas Newbigging",place-name,https://en.wikipedia.org/wiki/Battle_of_Brunanburh,53.78752,-2.24439,village,OS Open Names: Burnley (Town)
+brunanburh,Burnswark,George Neilson (1899); Charles Oman; Kevin Halloran,place-name and topography,https://en.wikipedia.org/wiki/Battle_of_Brunanburh,55.09537,-3.27814,site,OS Open Names: Burnswark Hill (Hill Or Mountain)
+brunanburh,Lanchester,Listed proposal,listed,https://en.wikipedia.org/wiki/Battle_of_Brunanburh,54.82134,-1.74263,village,OS Open Names: Lanchester (Village)
+brunanburh,Hunwick,Listed proposal,listed,https://en.wikipedia.org/wiki/Battle_of_Brunanburh,54.68782,-1.70535,village,OS Open Names: Hunwick (Village)
+brunanburh,Londesborough,Listed proposal,listed,https://en.wikipedia.org/wiki/Battle_of_Brunanburh,53.89912,-0.68045,village,OS Open Names: Londesborough (Village)
+brunanburh,Nunburnholme,Listed proposal,listed,https://en.wikipedia.org/wiki/Battle_of_Brunanburh,53.92236,-0.70746,village,OS Open Names: Nunburnholme (Village)
+brunanburh,Heysham,Listed proposal,listed,https://en.wikipedia.org/wiki/Battle_of_Brunanburh,54.04813,-2.89223,village,OS Open Names: Heysham (Town)
+brunanburh,Barton-upon-Humber,Listed proposal,listed,https://en.wikipedia.org/wiki/Battle_of_Brunanburh,53.68467,-0.43884,village,OS Open Names: Barton-upon-Humber (Town)
+brunanburh,Little Weighton,Listed proposal,listed,https://en.wikipedia.org/wiki/Battle_of_Brunanburh,53.79007,-0.50693,village,OS Open Names: Little Weighton (Village)
+brunanburh,Bourn,Listed proposal,listed,https://en.wikipedia.org/wiki/Battle_of_Brunanburh,52.19072,-0.06367,village,OS Open Names: Bourn (Village)
+graupius,Bennachie,Modern focus on the north-east: 'at the foot of Bennachie',archaeology (marching camps),https://en.wikipedia.org/wiki/Battle_of_Mons_Graupius,57.29314,-2.56074,site,OS Open Names: Bennachie (Hill Or Mountain)
+graupius,Durno marching camp,"The large marching camp at Logie Durno, north of Bennachie",archaeology (marching camps),https://en.wikipedia.org/wiki/Battle_of_Mons_Graupius,57.34336,-2.47315,village,OS Open Names: Durno (Village)
+graupius,Kempstone Hill,"Roy, Watt, Hogan and others",topography and Elsick Mounth,https://en.wikipedia.org/wiki/Battle_of_Mons_Graupius,56.99769,-2.19946,site,OS Open Names: Kempstone Hill (Hill Or Mountain)
+graupius,Hill of Megray,"Roy, Watt, Hogan and others",topography and Elsick Mounth,https://en.wikipedia.org/wiki/Battle_of_Mons_Graupius,56.98548,-2.19859,site,OS Open Names: Hill of Megray (Hill Or Mountain)
+graupius,Raedykes camp,Gabriel Jacques Surenne and other scholars,archaeology (marching camp),https://en.wikipedia.org/wiki/Raedykes,57.00313,-2.26091,site,Grid reference NO 842 902 stated in the source
+graupius,Dalginross,19th-century Perthshire identifications,antiquarian,https://en.wikipedia.org/wiki/Battle_of_Mons_Graupius,56.36874,-3.98331,village,OS Open Names: Dalginross (Suburban Area)
+graupius,Blairgowrie,19th-century Perthshire identifications,antiquarian,https://en.wikipedia.org/wiki/Battle_of_Mons_Graupius,56.59278,-3.33891,village,OS Open Names: Blairgowrie (Suburban Area)
+boudica,Mancetter,Graham Webster,Roman road and military reasoning,https://en.wikipedia.org/wiki/Boudican_revolt,52.56873,-1.52943,village,OS Open Names: Mancetter (Village)
+boudica,High Cross,Kevin K. Carroll (Watling Street meets the Fosse Way),Roman road and military reasoning,https://en.wikipedia.org/wiki/Boudican_revolt,52.49366,-1.30345,village,OS Open Names: High Cross (Hamlet)
+boudica,Virginia Water,"Fuentes (between Callow Hill and Knowle Hill, off the Devil's Highway)",Roman road and military reasoning,https://en.wikipedia.org/wiki/Boudican_revolt,51.40293,-0.56429,village,OS Open Names: Virginia Water (Village)
+boudica,"The Rampart, Messing",Local legend,local tradition,https://en.wikipedia.org/wiki/Boudican_revolt,51.8362,0.7497,village,OS Open Names: Messing (Village)
+boudica,Ambresbury Banks,Local legend,local tradition,https://en.wikipedia.org/wiki/Boudican_revolt,51.68301,0.07839,site,"Atlas of Hillforts 3533: Ambresbury Banks, Essex (Ambersbury, Amesbury)"
+boudica,Kings Norton,Roman artefacts near Metchley Camp,archaeology,https://en.wikipedia.org/wiki/Boudican_revolt,52.40725,-1.92737,village,OS Open Names: King's Norton (Suburban Area)
+boudica,"Cuttle Mill, Paulerspury",Akeman Street as a route from the south-west,Roman road,https://en.wikipedia.org/wiki/Boudican_revolt,52.10294,-0.94821,village,OS Open Names: Paulerspury (Village)
+boudica,Church Stowe,Akeman Street as a route from the south-west,Roman road,https://en.wikipedia.org/wiki/Boudican_revolt,52.21338,-1.0622,village,OS Open Names: Church Stowe (Village)
+boudica,"Arbury Banks, Hertfordshire",2009 suggestion: Iceni returning along the Icknield Way,route reasoning,https://en.wikipedia.org/wiki/Boudican_revolt,52.03242,-0.16291,site,"Atlas of Hillforts 1826: Arbury Banks, Hertfordshire"
+boudica,King's Cross (Battle Bridge),"Old tradition, rejected by modern historians",local tradition,https://en.wikipedia.org/wiki/Boudican_revolt,51.53694,-0.11914,village,OS Open Names: King's Cross (Suburban Area)
+boudica,St Asaph (Bryn Paulin),Thomas Pennant; Richard Williams Morgan,place-name and legend,https://en.wikipedia.org/wiki/Boudican_revolt,53.25786,-3.4457,village,OS Open Names: St Asaph (City)
+boudica,Trelawnyd,Morien,legend,https://en.wikipedia.org/wiki/Boudican_revolt,53.30709,-3.36594,village,OS Open Names: Trelawnyd (Village)
+camlann,Castlesteads (Camboglanna),"Andrew Breeze (2020), after R. G. Collingwood",place-name,https://en.wikipedia.org/wiki/Battle_of_Camlann,54.96377,-2.76375,site,Pleiades 89133: Camboglanna
+camlann,"Camelford, River Camel","Geoffrey of Monmouth, Wace, Layamon",legend,https://en.wikipedia.org/wiki/Battle_of_Camlann,50.62294,-4.67883,village,OS Open Names: Camelford (Town)
+camlann,Slaughterbridge,Legendary and folk associations,local tradition,https://en.wikipedia.org/wiki/Slaughterbridge,50.63739,-4.67462,village,OS Open Names: Slaughterbridge (Hamlet)
+camlann,Salisbury,French romances and Malory ('Battle of Salisbury'),legend,https://en.wikipedia.org/wiki/Battle_of_Camlann,51.07037,-1.79643,village,OS Open Names: Salisbury (City)
+camlann,"Camlan, near Mallwyd","Patrick Sims-Williams, on Llywelyn Fardd's Camlan",place-name,https://www.thecollector.com/where-was-battle-camlann-king-athur/,52.69383,-3.70133,site,Grid reference SH 85115 12041 from https://historicplacenames.rcahmw.gov.uk/placenames/headname/d93ab688-ddcf-4dd1-a557-515c10bd4e3c
+camlann,Afon Gamlan,Patrick Sims-Williams (also named),place-name,https://www.thecollector.com/where-was-battle-camlann-king-athur/,52.80526,-3.92973,area,"OS Open Rivers: Afon Gamlan, midpoint of a 6.5 km run"
+camlann,"Dunnichen, Angus","Earlier local tradition (Headrick, Second Statistical Account)",local tradition,https://en.wikipedia.org/wiki/Battle_of_Dun_Nechtain,56.62833,-2.80142,village,OS Open Names: Dunnichen (Other Settlement)
+catraeth,Catterick,Thomas Stephens; Ifor Williams; most modern scholars,place-name,https://en.wikipedia.org/wiki/Battle_of_Catraeth,54.37722,-1.63,village,Coordinates stated in the source page
+arfderydd,"Arthuret, near Longtown","W. F. Skene, from John of Fordun",place-name,https://en.wikipedia.org/wiki/Battle_of_Arfderydd,55.01667,-2.91667,village,Coordinates stated in the source page
+degsastan,"Dawston, Liddesdale",Possible site (Dawstane); 'a likely possibility' (ScARF),place-name,https://scarf.scot/regional/sesarf/8-early-medieval/8-6-conflict/8-6-2-textual-sources-relating-to-battles/,55.19633,-2.79242,area,OS Open Names: Liddesdale (Valley)
+degsastan,"Western Dawyck, Tweeddale",Andrew Breeze (2020),place-name,https://scarf.scot/regional/sesarf/8-early-medieval/8-6-conflict/8-6-2-textual-sources-relating-to-battles/,55.61322,-3.31039,area,OS Open Names: Dawyck Mill Pool (Inland Water)
+maserfield,Oswestry,Traditional ('Oswald's Tree'),place-name,https://en.wikipedia.org/wiki/Battle_of_Maserfield,52.86061,-3.05553,village,OS Open Names: Oswestry (Town)
+maserfield,Forden,"Andrew Breeze (2020), from Canu Heledd",place-name,https://en.wikipedia.org/wiki/Battle_of_Maserfield,52.60164,-3.13514,village,OS Open Names: Forden (Village)
+winwaed,"Cock Beck, Leeds",Common identification,river name,https://en.wikipedia.org/wiki/Battle_of_the_Winwaed,53.83331,-1.30856,area,"OS Open Rivers: Cock Beck, midpoint of a 23.1 km run"
+winwaed,River Went,Andrew Breeze (2004),river name,https://en.wikipedia.org/wiki/Battle_of_the_Winwaed,53.63941,-1.17237,area,"OS Open Rivers: River Went, midpoint of a 28.5 km run"
+winwaed,"Winwick, Cheshire",'Wilder speculation',place-name,https://en.wikipedia.org/wiki/Battle_of_the_Winwaed,53.43091,-2.59711,village,OS Open Names: Winwick (Village)
+winwaed,Oswestry,'Wilder speculation',place-name,https://en.wikipedia.org/wiki/Battle_of_the_Winwaed,52.86061,-3.05553,village,OS Open Names: Oswestry (Town)
+nechtansmere,Dunnichen,George Chalmers (early 19th century),place-name,https://en.wikipedia.org/wiki/Battle_of_Dun_Nechtain,56.62844,-2.80516,village,Coordinates stated in the source page
+nechtansmere,Dunnichen Moss,George Chalmers: a drained lake east of the village,place-name and topography,https://en.wikipedia.org/wiki/Battle_of_Dun_Nechtain,56.62988,-2.7897,site,Grid reference NO 516 489 stated in the source
+nechtansmere,Rescobie Loch,More recent suggestions: the valley north of Dunnichen Hill,topography,https://en.wikipedia.org/wiki/Battle_of_Dun_Nechtain,56.65589,-2.79677,site,Grid reference NO 512 518 stated in the source
+nechtansmere,Restenneth Loch,More recent suggestions: the valley north of Dunnichen Hill,topography,https://en.wikipedia.org/wiki/Battle_of_Dun_Nechtain,56.65558,-2.84407,site,Grid reference NO 483 518 stated in the source
+nechtansmere,"Dunachton, Loch Insh",Alex Woolf (2006); James Fraser,place-name and topography,https://en.wikipedia.org/wiki/Battle_of_Dun_Nechtain,57.11851,-3.94956,site,Grid reference NH 820 047 stated in the source
+assandun,Ashingdon,Long supposed,place-name,https://en.wikipedia.org/wiki/Battle_of_Assandun,51.60747,0.69141,village,OS Open Names: Ashingdon (Village)
+assandun,Ashdon,Alternative identification,place-name,https://en.wikipedia.org/wiki/Battle_of_Assandun,52.05492,0.31317,village,OS Open Names: Ashdon (Village)
+assandun,Hadstock,Skeletons found in the 'Red Field'; early 11th-century church,archaeology,https://en.wikipedia.org/wiki/Battle_of_Assandun,52.08039,0.27648,village,OS Open Names: Hadstock (Village)
+edington,"Edington, Wiltshire",Accepted by most present-day historians,place-name,https://en.wikipedia.org/wiki/Battle_of_Edington,51.26389,-2.14278,site,Coordinates stated in the source page
+edington,"Edington, Polden Hills, Somerset",Charles Whistler and Albany Major (1913); Illtyd Trethowan (1939),place-name and military reasoning,https://en.wikipedia.org/wiki/Battle_of_Edington,51.15399,-2.87713,village,OS Open Names: Edington (Village)
+edington,Abingdon,Polydore Vergil (a misreading),misreading,https://en.wikipedia.org/wiki/Battle_of_Edington,51.67014,-1.28098,village,OS Open Names: Abingdon-on-Thames (Town)
+ellendun,Wroughton,Charles Oman,boundaries and geography,https://en.wikipedia.org/wiki/Battle_of_Ellendun,51.53614,-1.78514,village,OS Open Names: Wroughton (Village)
+ellendun,Lydiard Park,T. Spicer,unstated,https://en.wikipedia.org/wiki/Battle_of_Ellendun,51.56141,-1.85161,site,Coordinates from https://www.britishlistedbuildings.co.uk/101198420-lydiard-park-west-swindon
+ellendun,Wilton,William Camden (1610),antiquarian,https://en.wikipedia.org/wiki/Battle_of_Ellendun,51.07998,-1.86378,village,OS Open Names: Wilton (Town)
+tettenhall,Tettenhall,Aethelweard,chronicle,https://en.wikipedia.org/wiki/Battle_of_Tettenhall,52.60011,-2.17586,village,OS Open Names: Tettenhall (Suburban Area)
+tettenhall,Wednesfield,Alternative name of the battle (Wodnesfeld),chronicle,https://en.wikipedia.org/wiki/Battle_of_Tettenhall,52.59922,-2.08343,village,OS Open Names: Wednesfield (Suburban Area)
+hatfield,Hatfield Chase,Traditional: marshy ground north-east of Doncaster,place-name,https://en.wikipedia.org/wiki/Battle_of_Hatfield_Chase,53.579,-0.92191,area,OS Open Names: Hatfield Chase (Other Landcover)
+hatfield,Cuckney ('High Hatfield'),Battle of Hatfield Investigation Society,place-name and burials,https://en.wikipedia.org/wiki/Battle_of_Hatfield_Chase,53.23347,-1.16076,village,OS Open Names: Cuckney (Village)
+heavenfield,"Heavenfield, St Oswald's",Bede; the cross and church by the Roman Wall,chronicle and continuous tradition,https://en.wikipedia.org/wiki/Battle_of_Heavenfield,55.0203,-2.1005,site,Coordinates stated in the source page
+heavenfield,Devil's Water,Max Adams,charter evidence for Denisesburn,https://en.wikipedia.org/wiki/Battle_of_Heavenfield,54.91453,-2.09861,area,"OS Open Rivers: Devil's Water, midpoint of a 22.9 km run"

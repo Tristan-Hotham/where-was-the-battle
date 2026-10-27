@@ -1,0 +1,1429 @@
+{
+ "n_battles": 18,
+ "n_candidates": 88,
+ "n_unplaced": 3,
+ "n_candidate_rows_by_precision": {
+  "village": 52,
+  "site": 28,
+  "area": 8
+ },
+ "battles": {
+  "whalley": {
+   "name": "Whalley",
+   "full": "Battle of Whalley (Billingahoh)",
+   "date": "798",
+   "year": 798,
+   "who": "Eardwulf, king of Northumbria, against the rebel leader Wada",
+   "control": false,
+   "texts": [
+    {
+     "source": "Anglo-Saxon Chronicle, year 798",
+     "says": "A great battle 'at Whalley in Northumbria' in Lent, on 2 April; Alric son of Heardberht was killed, and many with him."
+    },
+    {
+     "source": "Symeon of Durham, Historia Regum (12th century, from earlier northern annals)",
+     "says": "Wada, a leader of the plot that killed King Aethelred, fought Eardwulf 'in a place called by the English Billingahoh, near Walalege'. Wada was put to flight."
+    }
+   ],
+   "checks": [
+    {
+     "id": "near_whalley",
+     "label": "Near Whalley",
+     "clue": "Both texts tie the fight to Whalley (Hwaelleage, Walalege)",
+     "kind": "near",
+     "params": [
+      "Whalley",
+      2,
+      5
+     ]
+    },
+    {
+     "id": "hoh",
+     "label": "A hill-spur",
+     "clue": "Billingahoh ends in Old English hoh, a heel or spur of land; the Victoria County History reads it as the hill now called Whalley Nab",
+     "kind": "hill",
+     "params": [
+      0.9,
+      0.75
+     ]
+    }
+   ],
+   "n": 5,
+   "n_checks": 2,
+   "spread_km": 3.5,
+   "median_pair_km": 2.6,
+   "far_pair": [
+    "Billington Moor",
+    "Loe Hill, Winckley lowes"
+   ],
+   "centroid": [
+    53.8179,
+    -2.4191
+   ],
+   "top_fit": 1.0,
+   "leaders": [
+    "Billington"
+   ],
+   "n_full_fit": 1,
+   "n_zero_fit": 0,
+   "mean_fit": 0.7,
+   "wikidata": null
+  },
+  "badon": {
+   "name": "Mount Badon",
+   "full": "Battle of Mount Badon",
+   "date": "about 500",
+   "year": 500,
+   "who": "Britons against Saxons",
+   "control": false,
+   "texts": [
+    {
+     "source": "Gildas, De Excidio Britanniae (about 540s)",
+     "says": "'The siege of Badon Hill' (obsessio Badonici montis), 'almost the last great slaughter' of the invaders, in the year of Gildas's birth."
+    },
+    {
+     "source": "Bede, Ecclesiastical History (731)",
+     "says": "The siege of Mount Badon, 44 years after the Saxons came."
+    },
+    {
+     "source": "Historia Brittonum (about 830)",
+     "says": "Arthur's twelfth battle, 'on Mount Badon', where 960 fell in one charge."
+    },
+    {
+     "source": "Annales Cambriae (10th century)",
+     "says": "The battle of Badon, in which Arthur carried the cross for three days and nights."
+    },
+    {
+     "source": "Geoffrey of Monmouth (about 1136)",
+     "says": "Places it at Bath. Geoffrey invents freely."
+    }
+   ],
+   "checks": [
+    {
+     "id": "mons",
+     "label": "A hill",
+     "clue": "Every early text calls Badon a hill (mons)",
+     "kind": "hill",
+     "params": [
+      0.9,
+      0.75
+     ]
+    },
+    {
+     "id": "siege",
+     "label": "A place to besiege",
+     "clue": "Gildas and Bede call it a siege (obsessio): I test for a hillfort within reach",
+     "kind": "fort",
+     "params": [
+      0.5,
+      2
+     ]
+    }
+   ],
+   "n": 11,
+   "n_checks": 2,
+   "spread_km": 579.5,
+   "median_pair_km": 109.0,
+   "far_pair": [
+    "Badbury Rings",
+    "Bowden Hill, Linlithgow"
+   ],
+   "centroid": [
+    52.0449,
+    -2.1283
+   ],
+   "top_fit": 1.0,
+   "leaders": [
+    "Liddington Castle",
+    "Badbury Rings",
+    "Ringsbury Camp, Braydon",
+    "Arbury Hill, Northamptonshire"
+   ],
+   "n_full_fit": 4,
+   "n_zero_fit": 1,
+   "mean_fit": 0.705,
+   "wikidata": {
+    "qid": "Q595320",
+    "lat": 51.38,
+    "lon": -2.36,
+    "nearest": "Bath",
+    "nearest_km": 0.3,
+    "farthest_km": 515.3
+   }
+  },
+  "brunanburh": {
+   "name": "Brunanburh",
+   "full": "Battle of Brunanburh",
+   "date": "937",
+   "year": 937,
+   "who": "Aethelstan of England against Olaf of Dublin, Constantine of Alba and Owain of Strathclyde",
+   "control": false,
+   "texts": [
+    {
+     "source": "Anglo-Saxon Chronicle poem (within two decades)",
+     "says": "Fought 'around Brunanburh'; the Norsemen fled in their ships over deep water, 'Dingesmere', to Dublin."
+    },
+    {
+     "source": "Aethelweard (late 10th century); Symeon of Durham",
+     "says": "Brunandun; Weondune ('dun', a hill)."
+    },
+    {
+     "source": "John of Worcester, Symeon of Durham, Chronicle of Melrose (12th century)",
+     "says": "Olaf's fleet entered the mouth of the Humber."
+    },
+    {
+     "source": "Egil's Saga (13th century)",
+     "says": "Vinheidr: a heath, with Aethelstan's camp between a river and a wooded rise."
+    }
+   ],
+   "checks": [
+    {
+     "id": "ships",
+     "label": "Ships within reach",
+     "clue": "The defeated fled by sea to Dublin",
+     "kind": "coast",
+     "params": [
+      10,
+      25
+     ]
+    },
+    {
+     "id": "dun",
+     "label": "A hill",
+     "clue": "Brunandun, Weondune: dun is a hill",
+     "kind": "hill",
+     "params": [
+      0.9,
+      0.75
+     ]
+    },
+    {
+     "id": "humber",
+     "label": "Near the Humber",
+     "clue": "Later chroniclers put Olaf's fleet in the Humber (12th century and after)",
+     "kind": "humber",
+     "params": [
+      30,
+      60
+     ]
+    },
+    {
+     "id": "river",
+     "label": "A river nearby",
+     "clue": "Egil's Saga puts a river beside the English camp (a late saga)",
+     "kind": "river",
+     "params": [
+      1,
+      2
+     ]
+    }
+   ],
+   "n": 16,
+   "n_checks": 4,
+   "spread_km": 386.2,
+   "median_pair_km": 144.9,
+   "far_pair": [
+    "Burnswark",
+    "Bourn"
+   ],
+   "centroid": [
+    53.7085,
+    -1.6418
+   ],
+   "top_fit": 0.75,
+   "leaders": [
+    "Bromborough",
+    "Londesborough",
+    "Nunburnholme"
+   ],
+   "n_full_fit": 0,
+   "n_zero_fit": 0,
+   "mean_fit": 0.523,
+   "wikidata": {
+    "qid": "Q2246615",
+    "lat": 53.796373,
+    "lon": -2.257319,
+    "nearest": "Burnley",
+    "nearest_km": 1.3,
+    "farthest_km": 231.1
+   }
+  },
+  "graupius": {
+   "name": "Mons Graupius",
+   "full": "Battle of Mons Graupius",
+   "date": "AD 83 or 84",
+   "year": 83,
+   "who": "Agricola's Roman army against the Caledonians under Calgacus",
+   "control": false,
+   "texts": [
+    {
+     "source": "Tacitus, Agricola (AD 98)",
+     "says": "The Caledonians held the slopes of a hill, Mons Graupius, rising in tiers above level ground; the fleet had been sent ahead along the coast; the beaten army fled to woods."
+    }
+   ],
+   "checks": [
+    {
+     "id": "mons",
+     "label": "A big hill",
+     "clue": "Tens of thousands ranked in tiers up a hill: I ask for at least 150 m of relief within 3 km (300 m for a full pass)",
+     "kind": "relief",
+     "params": [
+      300,
+      150
+     ]
+    },
+    {
+     "id": "fleet",
+     "label": "Near the sea",
+     "clue": "Agricola's fleet worked along the coast; some argue the field was within sight of the sea",
+     "kind": "coast",
+     "params": [
+      10,
+      30
+     ]
+    }
+   ],
+   "n": 7,
+   "n_checks": 2,
+   "spread_km": 142.0,
+   "median_pair_km": 46.8,
+   "far_pair": [
+    "Durno marching camp",
+    "Dalginross"
+   ],
+   "centroid": [
+    56.9406,
+    -2.7164
+   ],
+   "top_fit": 0.75,
+   "leaders": [
+    "Kempstone Hill",
+    "Hill of Megray",
+    "Raedykes camp"
+   ],
+   "n_full_fit": 0,
+   "n_zero_fit": 0,
+   "mean_fit": 0.571,
+   "wikidata": {
+    "qid": "Q1127337",
+    "lat": 56.916667,
+    "lon": -3.0,
+    "nearest": "Blairgowrie",
+    "nearest_km": 41.5,
+    "farthest_km": 85.6
+   }
+  },
+  "boudica": {
+   "name": "Boudica's last stand",
+   "full": "Boudica's final battle ('Watling Street')",
+   "date": "AD 60 or 61",
+   "year": 60,
+   "who": "Suetonius Paulinus against the Iceni and Trinovantes under Boudica",
+   "control": false,
+   "texts": [
+    {
+     "source": "Tacitus, Annals 14 (about 115)",
+     "says": "Paulinus chose a narrow defile with a wood behind him, opening onto a plain; the Britons' wagons were drawn up behind their line."
+    },
+    {
+     "source": "Cassius Dio (about 200)",
+     "says": "No place named."
+    }
+   ],
+   "checks": [
+    {
+     "id": "defile",
+     "label": "A defile",
+     "clue": "A narrow pass with rising ground on the flanks: at least 60 m of relief within 3 km (30 m for a loose fit)",
+     "kind": "relief",
+     "params": [
+      60,
+      30
+     ]
+    },
+    {
+     "id": "road",
+     "label": "On a Roman road",
+     "clue": "Paulinus was marching back from Anglesey with his legions",
+     "kind": "road",
+     "params": [
+      2,
+      5
+     ]
+    },
+    {
+     "id": "reach",
+     "label": "Within reach of the sacked towns",
+     "clue": "The battle followed the burning of Verulamium (St Albans)",
+     "kind": "near",
+     "params": [
+      "Verulamium",
+      100,
+      200
+     ]
+    }
+   ],
+   "n": 12,
+   "n_checks": 3,
+   "spread_km": 324.7,
+   "median_pair_km": 128.9,
+   "far_pair": [
+    "The Rampart, Messing",
+    "St Asaph (Bryn Paulin)"
+   ],
+   "centroid": [
+    52.2369,
+    -1.1334
+   ],
+   "top_fit": 1.0,
+   "leaders": [
+    "Cuttle Mill, Paulerspury",
+    "Church Stowe",
+    "Arbury Banks, Hertfordshire"
+   ],
+   "n_full_fit": 3,
+   "n_zero_fit": 0,
+   "mean_fit": 0.805,
+   "wikidata": null
+  },
+  "camlann": {
+   "name": "Camlann",
+   "full": "Battle of Camlann",
+   "date": "about 537",
+   "year": 537,
+   "who": "Arthur and Medraut (Mordred)",
+   "control": false,
+   "texts": [
+    {
+     "source": "Annales Cambriae (10th century, entry for 537)",
+     "says": "'The strife of Camlann, in which Arthur and Medraut fell.'"
+    },
+    {
+     "source": "Geoffrey of Monmouth (about 1136) and later",
+     "says": "On the River Camel in Cornwall; Layamon says Camelford; the French romances and Malory say Salisbury."
+    }
+   ],
+   "checks": [
+    {
+     "id": "glann",
+     "label": "A river bank",
+     "clue": "The name may come from Brittonic *Cambo-glanna, 'crooked bank'",
+     "kind": "river",
+     "params": [
+      1,
+      2
+     ]
+    }
+   ],
+   "n": 7,
+   "n_checks": 1,
+   "spread_km": 679.1,
+   "median_pair_km": 248.1,
+   "far_pair": [
+    "Camelford, River Camel",
+    "Dunnichen, Angus"
+   ],
+   "centroid": [
+    52.7746,
+    -3.478
+   ],
+   "top_fit": 1.0,
+   "leaders": [
+    "Castlesteads (Camboglanna)",
+    "Camelford, River Camel",
+    "Slaughterbridge",
+    "Salisbury",
+    "Camlan, near Mallwyd",
+    "Afon Gamlan"
+   ],
+   "n_full_fit": 6,
+   "n_zero_fit": 0,
+   "mean_fit": 0.929,
+   "wikidata": null
+  },
+  "catraeth": {
+   "name": "Catraeth",
+   "full": "Battle of Catraeth",
+   "date": "about 600",
+   "year": 600,
+   "who": "The Gododdin war band against the Angles of Bernicia and Deira",
+   "control": false,
+   "texts": [
+    {
+     "source": "Y Gododdin, attributed to Aneirin",
+     "says": "A war band feasted at Din Eidyn (Edinburgh) for a year and rode to Catraeth, where nearly all were killed."
+    }
+   ],
+   "checks": [],
+   "n": 1,
+   "n_checks": 0,
+   "spread_km": 0.0,
+   "median_pair_km": 0.0,
+   "far_pair": null,
+   "centroid": [
+    54.3772,
+    -1.63
+   ],
+   "wikidata": {
+    "qid": "Q3403266",
+    "lat": 54.377358,
+    "lon": -1.630096,
+    "nearest": "Catterick",
+    "nearest_km": 0.0,
+    "farthest_km": 0.0
+   }
+  },
+  "arfderydd": {
+   "name": "Arfderydd",
+   "full": "Battle of Arfderydd",
+   "date": "573",
+   "year": 573,
+   "who": "Gwenddoleu against Rhydderch Hael, or Peredur and Gwrgi",
+   "control": false,
+   "texts": [
+    {
+     "source": "Annales Cambriae (entry for 573)",
+     "says": "The battle of Armterid."
+    },
+    {
+     "source": "John of Fordun (14th century)",
+     "says": "On the plain between Liddel and Carwannok."
+    }
+   ],
+   "checks": [
+    {
+     "id": "liddel",
+     "label": "By the Liddel",
+     "clue": "Fordun names the Liddel",
+     "kind": "liddel",
+     "params": [
+      3,
+      6
+     ]
+    },
+    {
+     "id": "plain",
+     "label": "Open ground",
+     "clue": "Fordun calls it a plain: at most 40 m of relief within 1 km (80 m loosely)",
+     "kind": "flat",
+     "params": [
+      40,
+      80
+     ]
+    }
+   ],
+   "n": 1,
+   "n_checks": 2,
+   "spread_km": 0.0,
+   "median_pair_km": 0.0,
+   "far_pair": null,
+   "centroid": [
+    55.0167,
+    -2.9167
+   ],
+   "top_fit": 0.75,
+   "leaders": [
+    "Arthuret, near Longtown"
+   ],
+   "n_full_fit": 0,
+   "n_zero_fit": 0,
+   "mean_fit": 0.75,
+   "wikidata": {
+    "qid": "Q2633662",
+    "lat": 55.01666667,
+    "lon": -2.91666667,
+    "nearest": "Arthuret, near Longtown",
+    "nearest_km": 0.0,
+    "farthest_km": 0.0
+   }
+  },
+  "degsastan": {
+   "name": "Degsastan",
+   "full": "Battle of Degsastan",
+   "date": "about 603",
+   "year": 603,
+   "who": "Aethelfrith of Bernicia against Aedan mac Gabrain of Dal Riata",
+   "control": false,
+   "texts": [
+    {
+     "source": "Bede, Ecclesiastical History (731)",
+     "says": "Aedan came against Aethelfrith with 'an immense and mighty army' and was beaten 'at a famous place called Degsastan'."
+    }
+   ],
+   "checks": [],
+   "n": 2,
+   "n_checks": 0,
+   "spread_km": 56.7,
+   "median_pair_km": 56.7,
+   "far_pair": [
+    "Dawston, Liddesdale",
+    "Western Dawyck, Tweeddale"
+   ],
+   "centroid": [
+    55.4048,
+    -3.0514
+   ],
+   "wikidata": {
+    "qid": "Q2712138",
+    "unknown": true
+   }
+  },
+  "maserfield": {
+   "name": "Maserfield",
+   "full": "Battle of Maserfield",
+   "date": "642",
+   "year": 642,
+   "who": "Penda of Mercia against Oswald of Northumbria",
+   "control": false,
+   "texts": [
+    {
+     "source": "Bede, Ecclesiastical History (731)",
+     "says": "Oswald fell at Maserfelth."
+    },
+    {
+     "source": "Annales Cambriae; Canu Heledd",
+     "says": "Cocboy; Cogwy."
+    }
+   ],
+   "checks": [
+    {
+     "id": "feld",
+     "label": "Open ground",
+     "clue": "Maserfelth ends in Old English feld, open country: at most 40 m of relief within 1 km (80 m loosely)",
+     "kind": "flat",
+     "params": [
+      40,
+      80
+     ]
+    }
+   ],
+   "n": 2,
+   "n_checks": 1,
+   "spread_km": 29.3,
+   "median_pair_km": 29.3,
+   "far_pair": [
+    "Oswestry",
+    "Forden"
+   ],
+   "centroid": [
+    52.7311,
+    -3.0953
+   ],
+   "top_fit": 0.5,
+   "leaders": [
+    "Oswestry",
+    "Forden"
+   ],
+   "n_full_fit": 0,
+   "n_zero_fit": 0,
+   "mean_fit": 0.5,
+   "wikidata": {
+    "qid": "Q1818410",
+    "lat": 52.86,
+    "lon": -3.054,
+    "nearest": "Oswestry",
+    "nearest_km": 0.1,
+    "farthest_km": 29.2
+   }
+  },
+  "winwaed": {
+   "name": "Winwaed",
+   "full": "Battle of the Winwaed",
+   "date": "655",
+   "year": 655,
+   "who": "Oswiu of Northumbria against Penda of Mercia",
+   "control": false,
+   "texts": [
+    {
+     "source": "Bede, Ecclesiastical History (731)",
+     "says": "Fought by the river Winwaed, swollen by heavy rain, so that 'many more were drowned in the flight than destroyed by the sword'; Oswiu ended the campaign in the district of Loidis."
+    }
+   ],
+   "checks": [
+    {
+     "id": "river",
+     "label": "A river",
+     "clue": "The battle is named after a river that drowned the fleeing army",
+     "kind": "river",
+     "params": [
+      1,
+      2
+     ]
+    },
+    {
+     "id": "loidis",
+     "label": "Near Leeds (Loidis)",
+     "clue": "Bede ends the campaign in the district of Loidis",
+     "kind": "near",
+     "params": [
+      "Leeds",
+      25,
+      50
+     ]
+    }
+   ],
+   "n": 4,
+   "n_checks": 2,
+   "spread_km": 158.6,
+   "median_pair_km": 96.5,
+   "far_pair": [
+    "Cock Beck, Leeds",
+    "Oswestry"
+   ],
+   "centroid": [
+    53.4411,
+    -2.0334
+   ],
+   "top_fit": 1.0,
+   "leaders": [
+    "Cock Beck, Leeds"
+   ],
+   "n_full_fit": 1,
+   "n_zero_fit": 0,
+   "mean_fit": 0.562,
+   "wikidata": null
+  },
+  "nechtansmere": {
+   "name": "Nechtansmere",
+   "full": "Battle of Dun Nechtain (Nechtansmere)",
+   "date": "685",
+   "year": 685,
+   "who": "Bridei of the Picts against Ecgfrith of Northumbria",
+   "control": false,
+   "texts": [
+    {
+     "source": "Bede, Ecclesiastical History (731)",
+     "says": "Ecgfrith was lured 'into the straits of inaccessible mountains' and killed."
+    },
+    {
+     "source": "Irish annals; Historia Brittonum",
+     "says": "Dun Nechtain, 'Nechtan's fort'; Gueith Linn Garan, by a lake."
+    }
+   ],
+   "checks": [
+    {
+     "id": "mountains",
+     "label": "Mountains",
+     "clue": "'Straits of inaccessible mountains': at least 300 m of relief within 3 km (150 m loosely)",
+     "kind": "relief",
+     "params": [
+      300,
+      150
+     ]
+    },
+    {
+     "id": "lake",
+     "label": "A lake",
+     "clue": "Linn Garan and the English name Nechtansmere both point to a lake (many have since been drained)",
+     "kind": "water",
+     "params": [
+      1.5,
+      3
+     ]
+    }
+   ],
+   "n": 5,
+   "n_checks": 2,
+   "spread_km": 89.0,
+   "median_pair_km": 4.1,
+   "far_pair": [
+    "Dunnichen Moss",
+    "Dunachton, Loch Insh"
+   ],
+   "centroid": [
+    56.7377,
+    -3.0371
+   ],
+   "top_fit": 0.75,
+   "leaders": [
+    "Rescobie Loch",
+    "Dunachton, Loch Insh"
+   ],
+   "n_full_fit": 0,
+   "n_zero_fit": 0,
+   "mean_fit": 0.6,
+   "wikidata": {
+    "qid": "Q961243",
+    "lat": 56.63,
+    "lon": -2.8,
+    "nearest": "Dunnichen",
+    "nearest_km": 0.4,
+    "farthest_km": 88.5
+   }
+  },
+  "assandun": {
+   "name": "Assandun",
+   "full": "Battle of Assandun",
+   "date": "1016",
+   "year": 1016,
+   "who": "Cnut against Edmund Ironside",
+   "control": false,
+   "texts": [
+    {
+     "source": "Anglo-Saxon Chronicle, 1016",
+     "says": "Edmund caught the Danes at Assandun as they were going back to their ships."
+    }
+   ],
+   "checks": [
+    {
+     "id": "dun",
+     "label": "A hill",
+     "clue": "Assandun ends in dun, a hill",
+     "kind": "hill",
+     "params": [
+      0.9,
+      0.75
+     ]
+    },
+    {
+     "id": "ships",
+     "label": "Near the ships",
+     "clue": "The Danes were heading back to their ships",
+     "kind": "coast",
+     "params": [
+      10,
+      25
+     ]
+    }
+   ],
+   "n": 3,
+   "n_checks": 2,
+   "spread_km": 59.8,
+   "median_pair_km": 56.1,
+   "far_pair": [
+    "Ashingdon",
+    "Hadstock"
+   ],
+   "centroid": [
+    51.9143,
+    0.427
+   ],
+   "top_fit": 1.0,
+   "leaders": [
+    "Ashingdon"
+   ],
+   "n_full_fit": 1,
+   "n_zero_fit": 1,
+   "mean_fit": 0.5,
+   "wikidata": {
+    "qid": "Q1704268",
+    "lat": 51.6028,
+    "lon": 0.6948,
+    "nearest": "Ashingdon",
+    "nearest_km": 0.6,
+    "farthest_km": 60.4
+   }
+  },
+  "edington": {
+   "name": "Ethandun",
+   "full": "Battle of Edington (Ethandun)",
+   "date": "878",
+   "year": 878,
+   "who": "Alfred of Wessex against Guthrum",
+   "control": false,
+   "texts": [
+    {
+     "source": "Anglo-Saxon Chronicle, 878",
+     "says": "Alfred rode from Athelney to Ecgbryht's stone 'east of Selwood', on to Iley the next day, and then to Ethandun, where he won."
+    },
+    {
+     "source": "Asser, Life of King Alfred (893)",
+     "says": "Ethandun."
+    }
+   ],
+   "checks": [
+    {
+     "id": "dun",
+     "label": "A hill",
+     "clue": "Ethandun ends in dun, a hill",
+     "kind": "hill",
+     "params": [
+      0.9,
+      0.75
+     ]
+    },
+    {
+     "id": "selwood",
+     "label": "East of Selwood",
+     "clue": "The muster was 'east of Selwood' and the army marched on from there: I test for a point east of Penselwood",
+     "kind": "east",
+     "params": [
+      "Penselwood"
+     ]
+    }
+   ],
+   "n": 3,
+   "n_checks": 2,
+   "spread_km": 124.7,
+   "median_pair_km": 74.9,
+   "far_pair": [
+    "Edington, Polden Hills, Somerset",
+    "Abingdon"
+   ],
+   "centroid": [
+    51.3627,
+    -2.1003
+   ],
+   "top_fit": 1.0,
+   "leaders": [
+    "Edington, Wiltshire"
+   ],
+   "n_full_fit": 1,
+   "n_zero_fit": 0,
+   "mean_fit": 0.667,
+   "wikidata": {
+    "qid": "Q2305651",
+    "lat": 51.440277777,
+    "lon": -2.242222222,
+    "nearest": "Edington, Wiltshire",
+    "nearest_km": 20.8,
+    "farthest_km": 71.2
+   }
+  },
+  "ellendun": {
+   "name": "Ellendun",
+   "full": "Battle of Ellendun",
+   "date": "825",
+   "year": 825,
+   "who": "Ecgberht of Wessex against Beornwulf of Mercia",
+   "control": false,
+   "texts": [
+    {
+     "source": "Anglo-Saxon Chronicle, 825",
+     "says": "Ecgberht fought Beornwulf at Ellendun."
+    }
+   ],
+   "checks": [
+    {
+     "id": "dun",
+     "label": "A hill",
+     "clue": "Ellendun ends in dun, a hill",
+     "kind": "hill",
+     "params": [
+      0.9,
+      0.75
+     ]
+    }
+   ],
+   "n": 3,
+   "n_checks": 1,
+   "spread_km": 53.5,
+   "median_pair_km": 51.0,
+   "far_pair": [
+    "Lydiard Park",
+    "Wilton"
+   ],
+   "centroid": [
+    51.3925,
+    -1.8335
+   ],
+   "top_fit": 0.5,
+   "leaders": [
+    "Lydiard Park"
+   ],
+   "n_full_fit": 0,
+   "n_zero_fit": 2,
+   "mean_fit": 0.167,
+   "wikidata": {
+    "qid": "Q1939977",
+    "lat": 51.525,
+    "lon": -1.792,
+    "nearest": "Wroughton",
+    "nearest_km": 1.3,
+    "farthest_km": 49.7
+   }
+  },
+  "tettenhall": {
+   "name": "Tettenhall",
+   "full": "Battle of Tettenhall (Wednesfield)",
+   "date": "910",
+   "year": 910,
+   "who": "The armies of Mercia and Wessex against the Northumbrian Danes",
+   "control": false,
+   "texts": [
+    {
+     "source": "Aethelweard (late 10th century)",
+     "says": "Near Tettenhall (Teotanheale)."
+    },
+    {
+     "source": "Anglo-Saxon Chronicle",
+     "says": "Wodnesfeld (Wednesfield)."
+    }
+   ],
+   "checks": [
+    {
+     "id": "tett",
+     "label": "Near Tettenhall",
+     "clue": "Aethelweard",
+     "kind": "near",
+     "params": [
+      "Tettenhall",
+      3,
+      6
+     ]
+    },
+    {
+     "id": "wodn",
+     "label": "Near Wednesfield",
+     "clue": "The Chronicle",
+     "kind": "near",
+     "params": [
+      "Wednesfield",
+      3,
+      6
+     ]
+    }
+   ],
+   "n": 2,
+   "n_checks": 2,
+   "spread_km": 6.2,
+   "median_pair_km": 6.2,
+   "far_pair": [
+    "Tettenhall",
+    "Wednesfield"
+   ],
+   "centroid": [
+    52.5997,
+    -2.1296
+   ],
+   "top_fit": 0.5,
+   "leaders": [
+    "Tettenhall",
+    "Wednesfield"
+   ],
+   "n_full_fit": 0,
+   "n_zero_fit": 0,
+   "mean_fit": 0.5,
+   "wikidata": {
+    "qid": "Q2253682",
+    "lat": 52.583333,
+    "lon": -2.133333,
+    "nearest": "Tettenhall",
+    "nearest_km": 3.4,
+    "farthest_km": 3.8
+   }
+  },
+  "hatfield": {
+   "name": "Hatfield Chase",
+   "full": "Battle of Hatfield Chase",
+   "date": "633",
+   "year": 633,
+   "who": "Cadwallon and Penda against Edwin of Northumbria",
+   "control": false,
+   "texts": [
+    {
+     "source": "Bede, Ecclesiastical History (731)",
+     "says": "Edwin was killed 'on the plain called Haethfelth'."
+    }
+   ],
+   "checks": [
+    {
+     "id": "feld",
+     "label": "Open heath",
+     "clue": "Haethfelth: open heathland, a field: at most 40 m of relief within 1 km (80 m loosely)",
+     "kind": "flat",
+     "params": [
+      40,
+      80
+     ]
+    }
+   ],
+   "n": 2,
+   "n_checks": 1,
+   "spread_km": 41.6,
+   "median_pair_km": 41.6,
+   "far_pair": [
+    "Hatfield Chase",
+    "Cuckney ('High Hatfield')"
+   ],
+   "centroid": [
+    53.4062,
+    -1.0413
+   ],
+   "top_fit": 1.0,
+   "leaders": [
+    "Hatfield Chase",
+    "Cuckney ('High Hatfield')"
+   ],
+   "n_full_fit": 2,
+   "n_zero_fit": 0,
+   "mean_fit": 1.0,
+   "wikidata": {
+    "qid": "Q1758473",
+    "lat": 53.585,
+    "lon": -0.926,
+    "nearest": "Hatfield Chase",
+    "nearest_km": 0.7,
+    "farthest_km": 42.1
+   }
+  },
+  "heavenfield": {
+   "name": "Heavenfield",
+   "full": "Battle of Heavenfield",
+   "date": "634",
+   "year": 634,
+   "who": "Oswald of Northumbria against Cadwallon of Gwynedd",
+   "control": true,
+   "texts": [
+    {
+     "source": "Bede, Ecclesiastical History (731)",
+     "says": "Oswald set up a cross at Hefenfelth, near the wall the Romans built, and the monks of Hexham went there every year; Cadwallon was killed at Denisesburna."
+    }
+   ],
+   "checks": [
+    {
+     "id": "wall",
+     "label": "By the Roman Wall",
+     "clue": "Near the wall the Romans built across Britain",
+     "kind": "road",
+     "params": [
+      2,
+      5
+     ]
+    },
+    {
+     "id": "hexham",
+     "label": "Near Hexham",
+     "clue": "The brethren of Hexham kept the site",
+     "kind": "near",
+     "params": [
+      "Hexham",
+      10,
+      20
+     ]
+    }
+   ],
+   "n": 2,
+   "n_checks": 2,
+   "spread_km": 11.8,
+   "median_pair_km": 11.8,
+   "far_pair": [
+    "Heavenfield, St Oswald's",
+    "Devil's Water"
+   ],
+   "centroid": [
+    54.9674,
+    -2.0996
+   ],
+   "top_fit": 1.0,
+   "leaders": [
+    "Heavenfield, St Oswald's"
+   ],
+   "n_full_fit": 1,
+   "n_zero_fit": 0,
+   "mean_fit": 0.75,
+   "wikidata": {
+    "qid": "Q956923",
+    "lat": 55.02,
+    "lon": -2.1,
+    "nearest": "Heavenfield, St Oswald's",
+    "nearest_km": 0.0,
+    "farthest_km": 11.7
+   }
+  }
+ },
+ "headline": {
+  "n_unlocated": 17,
+  "n_multi": 15,
+  "widest": {
+   "battle": "camlann",
+   "km": 679.1
+  },
+  "narrowest": {
+   "battle": "whalley",
+   "km": 3.5
+  },
+  "median_spread_km": 89.0,
+  "n_over_100km": 7,
+  "n_over_300km": 4,
+  "spread_order": [
+   [
+    "camlann",
+    679.1
+   ],
+   [
+    "badon",
+    579.5
+   ],
+   [
+    "brunanburh",
+    386.2
+   ],
+   [
+    "boudica",
+    324.7
+   ],
+   [
+    "winwaed",
+    158.6
+   ],
+   [
+    "graupius",
+    142.0
+   ],
+   [
+    "edington",
+    124.7
+   ],
+   [
+    "nechtansmere",
+    89.0
+   ],
+   [
+    "assandun",
+    59.8
+   ],
+   [
+    "degsastan",
+    56.7
+   ],
+   [
+    "ellendun",
+    53.5
+   ],
+   [
+    "hatfield",
+    41.6
+   ],
+   [
+    "maserfield",
+    29.3
+   ],
+   [
+    "tettenhall",
+    6.2
+   ],
+   [
+    "whalley",
+    3.5
+   ]
+  ],
+  "n_scored_battles": 16,
+  "n_unscored": 2,
+  "total_checks": 31,
+  "n_battles_with_full_fit": 9,
+  "n_battles_tied_top": 9,
+  "n_cands_scored": 85,
+  "n_cands_full": 20,
+  "n_cands_zero": 4
+ },
+ "wikidata": {
+  "n_battles_bi": 650,
+  "n_before_1066": 86,
+  "n_before_1000": 68,
+  "n_with_year": 636,
+  "n_study_pinned": 12,
+  "n_study_unknown": 1,
+  "n_pins_within_2km": 9,
+  "pins_far": [
+   [
+    "graupius",
+    41.5,
+    "Blairgowrie"
+   ],
+   [
+    "edington",
+    20.8,
+    "Edington, Wiltshire"
+   ],
+   [
+    "tettenhall",
+    3.4,
+    "Tettenhall"
+   ],
+   [
+    "brunanburh",
+    1.3,
+    "Burnley"
+   ],
+   [
+    "ellendun",
+    1.3,
+    "Wroughton"
+   ],
+   [
+    "hatfield",
+    0.7,
+    "Hatfield Chase"
+   ],
+   [
+    "assandun",
+    0.6,
+    "Ashingdon"
+   ],
+   [
+    "nechtansmere",
+    0.4,
+    "Dunnichen"
+   ],
+   [
+    "badon",
+    0.3,
+    "Bath"
+   ],
+   [
+    "maserfield",
+    0.1,
+    "Oswestry"
+   ],
+   [
+    "catraeth",
+    0.0,
+    "Catterick"
+   ],
+   [
+    "arfderydd",
+    0.0,
+    "Arthuret, near Longtown"
+   ],
+   [
+    "heavenfield",
+    0.0,
+    "Heavenfield, St Oswald's"
+   ]
+  ]
+ },
+ "whalley": {
+  "cands": [
+   {
+    "name": "Whalley village",
+    "elev_m": 54.0,
+    "from_whalley_km": 0.0,
+    "road_km": 1.9,
+    "river_km": 0.52,
+    "river": "River Calder",
+    "fit": 0.75,
+    "top_1km_m": 141.0
+   },
+   {
+    "name": "Billington",
+    "elev_m": 68.0,
+    "from_whalley_km": 0.7,
+    "road_km": 2.1,
+    "river_km": 0.16,
+    "river": "River Calder",
+    "fit": 1.0,
+    "top_1km_m": 174.0
+   },
+   {
+    "name": "Billington Moor",
+    "elev_m": 190.0,
+    "from_whalley_km": 3.01,
+    "road_km": 2.9,
+    "river_km": 0.58,
+    "river": "Dean Brook",
+    "fit": 0.75,
+    "top_1km_m": 204.0
+   },
+   {
+    "name": "Whalley Nab (Billingahoth hill)",
+    "elev_m": 81.0,
+    "from_whalley_km": 0.91,
+    "road_km": 2.7,
+    "river_km": 0.35,
+    "river": "River Calder",
+    "fit": 0.75,
+    "top_1km_m": 173.0
+   },
+   {
+    "name": "Loe Hill, Winckley lowes",
+    "elev_m": 38.0,
+    "from_whalley_km": 2.67,
+    "road_km": 0.5,
+    "river_km": 0.19,
+    "river": "River Ribble",
+    "fit": 0.25,
+    "top_1km_m": 65.0
+   }
+  ],
+  "max_pair_km": 3.5,
+  "road": "Verbeia-Bremetennacum Veteranorum",
+  "to_ribchester_km": 8.3,
+  "to_york_km": 88.0,
+  "nab_vs_village_km": 0.91,
+  "relief_3km_m": 239.0
+ },
+ "refs": {
+  "Whalley": [
+   53.8235,
+   -2.4061
+  ],
+  "York": [
+   53.962,
+   -1.0837
+  ],
+  "Edinburgh": [
+   55.9533,
+   -3.1891
+  ],
+  "Leeds": [
+   53.8007,
+   -1.5503
+  ],
+  "Hexham": [
+   54.9718,
+   -2.1009
+  ],
+  "Penselwood": [
+   51.0798,
+   -2.3432
+  ],
+  "Tettenhall": [
+   52.6001,
+   -2.1759
+  ],
+  "Wednesfield": [
+   52.5992,
+   -2.0834
+  ],
+  "Athelney": [
+   51.0569,
+   -2.9328
+  ],
+  "Ribchester": [
+   53.8137,
+   -2.5319
+  ],
+  "Verulamium": [
+   51.752,
+   -0.3585
+  ]
+ },
+ "extra": {
+  "brun_n_humber_full": 4,
+  "brun_n_ships_full": 6,
+  "brun_n_both": 4,
+  "brun_both_full": [
+   "Barton-upon-Humber",
+   "Little Weighton"
+  ],
+  "catraeth_from_edinburgh_km": 201.0,
+  "n_points_coord": 6,
+  "bath_fort_km": 2.5,
+  "bromborough_humber_km": 157.0,
+  "bennachie_coast_km": 32.0,
+  "graupius_relief_pass": 300,
+  "n_checks_by_kind": {
+   "near": 6,
+   "hill": 6,
+   "coast": 3,
+   "river": 3,
+   "relief": 3,
+   "flat": 3,
+   "road": 2,
+   "fort": 1,
+   "humber": 1,
+   "liddel": 1,
+   "water": 1,
+   "east": 1
+  },
+  "n_points_os": 62,
+  "n_points_atlas": 8,
+  "n_points_grid": 7,
+  "n_points_rivers": 4,
+  "n_points_pleiades": 1,
+  "n_sources": 26,
+  "n_wikipedia_sources": 80,
+  "brun_both_full_n": 2
+ }
+}
