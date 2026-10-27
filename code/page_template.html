@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Where Was the Battle?</title>
+<meta name="description" content="Lost battlefields of early Britain: {{n_candidates|int}} proposed sites for {{n_battles|int}} battles, from Mons Graupius to Whalley, tested against what the early texts actually say.">
+<meta property="og:title" content="Where Was the Battle? Lost battlefields of early Britain">
+<meta property="og:description" content="{{n_candidates|int}} proposed sites for {{n_battles|int}} battles. Camlann's theories are {{headline.widest.km|int}} km apart; Whalley's sit within {{headline.narrowest.km|f1}} km.">
+<meta property="og:image" content="https://tristan-hotham.github.io/where-was-the-battle/header.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+/* Chronicle parchment. Crimson = fits the texts. Ochre = fits loosely. Grey = does not fit. Blue = Wikidata's pin. */
+:root{
+  --bg:#F2ECDD; --panel:#E8E0CC; --fg:#211B14; --muted:#6E6455; --rule:#D6CCB5; --card:#FAF6EC; --border:#C6B99C;
+  --hot:#A8231C; --gold:#B07A12; --dot:#9C9282; --blue:#2C5D8F; --moss:#4D6E35; --plum:#7A3D7E;
+  --sea:#DCE3E1; --land:#EDE5D2;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#17140F; --panel:#211D16; --fg:#EFE8D8; --muted:#A99F8C; --rule:#3A342A; --card:#231F18; --border:#4C4537;
+  --hot:#E2574B; --gold:#DDA43A; --dot:#7E7666; --blue:#79A6D9; --moss:#86AE62; --plum:#C384C6;
+  --sea:#111819; --land:#272219; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#17140F; --panel:#211D16; --fg:#EFE8D8; --muted:#A99F8C; --rule:#3A342A; --card:#231F18; --border:#4C4537;
+  --hot:#E2574B; --gold:#DDA43A; --dot:#7E7666; --blue:#79A6D9; --moss:#86AE62; --plum:#C384C6;
+  --sea:#111819; --land:#272219; color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 18px/1.62 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:hidden}
+.wrap{max-width:680px;margin:0 auto;padding-block:28px 64px}
+.wrap .bleed{width:min(1080px,calc(100vw - 32px));margin-left:calc((100% - min(1080px,100vw - 32px))/2);margin-right:0}
+a{color:inherit;text-decoration-color:var(--hot);text-underline-offset:3px}
+.kicker{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.kicker b{background:var(--hot);color:#fff;padding:5px 8px;font-weight:500}
+header.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 24px;align-items:end;border-bottom:6px double var(--fg);padding-bottom:22px;margin-top:18px}
+h1{font:900 clamp(52px,13vw,112px)/.86 var(--display);letter-spacing:-.02em;margin:0;text-wrap:balance;font-variation-settings:"SOFT" 50}
+h1 em{font-style:normal;color:var(--hot)}
+.mark{width:clamp(92px,21vw,176px);height:auto;display:block}
+.dek{grid-column:1/-1;font-size:21px;line-height:1.42;margin:8px 0 0;max-width:44ch}
+.byline{font:400 13px/1.4 var(--mono);color:var(--muted);margin-top:14px}
+h2{font:800 34px/1.04 var(--display);letter-spacing:-.01em;margin:52px 0 10px;text-wrap:balance}
+h2 .n{font:500 13px/1 var(--mono);color:var(--hot);display:block;letter-spacing:.1em;margin-bottom:10px}
+h3{font:600 20px/1.25 var(--display);margin:28px 0 6px}
+p{margin:0 0 16px}
+.lede::first-letter{font:900 72px/.8 var(--display);float:left;margin:6px 10px 0 0;color:var(--hot)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0 8px}
+.stats div{background:var(--card);padding:14px 12px}
+.stats b{display:block;font:900 clamp(28px,6vw,40px)/1 var(--display);color:var(--fg)}
+.stats b.h{color:var(--hot)}
+.stats span{font:400 12px/1.35 var(--mono);color:var(--muted);display:block;margin-top:6px}
+@media (max-width:600px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.figure{margin:26px 0 30px}
+.fig-h{font:600 19px/1.25 var(--display);margin:0 0 4px}
+.fig-sub{font:400 13px/1.45 var(--mono);color:var(--muted);margin:0 0 12px}
+.src{font:400 12px/1.45 var(--mono);color:var(--muted);margin-top:10px}
+.chart{width:100%;position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+svg text{font-family:var(--mono);fill:var(--fg)}
+.lab{font-size:12px}.lab.m{fill:var(--muted)}.lab.b{font-weight:500}.lab.s{font-size:11px}
+.tip{position:absolute;pointer-events:none;background:var(--fg);color:var(--bg);font:400 12px/1.45 var(--mono);padding:8px 10px;border-radius:3px;max-width:280px;z-index:1000;transform:translate(-50%,calc(-100% - 12px));display:none}
+.tip b{font-weight:500}
+.controls{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:0 0 10px}
+.btn{font:500 12px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:8px 10px;cursor:pointer;min-height:36px}
+.btn[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn:focus-visible,select:focus-visible{outline:2px solid var(--hot);outline-offset:2px}
+.chip{min-height:32px;padding:6px 9px}
+.chip small{color:var(--muted);font-weight:400;margin-left:4px}
+.chip[aria-pressed="true"] small{color:var(--bg);opacity:.75}
+.mapgrid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:860px){.mapgrid{grid-template-columns:1fr}}
+#map,#wmap{border:1px solid var(--border);background:var(--sea);border-radius:2px;z-index:0}
+#map{height:clamp(420px,70vh,640px)}
+#wmap{height:clamp(360px,58vh,520px)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font:400 12px/1.3 var(--mono);color:var(--muted);margin-top:8px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.legend i.ln{width:18px;height:0;border-top:2px dashed var(--fg);border-radius:0;vertical-align:3px}
+.legend i.dm{border-radius:0;transform:rotate(45deg);width:9px;height:9px}
+.side{display:flex;flex-direction:column;gap:12px;min-width:0}
+.card{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--hot);padding:12px 14px;font:400 13px/1.5 var(--mono)}
+.card h4{font:700 21px/1.15 var(--display);margin:0 0 4px}
+.card .meta{color:var(--muted);margin-bottom:8px}
+.card .lbl{font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--hot);margin:12px 0 6px}
+.card ul{margin:0;padding-left:16px}
+.card li{margin:0 0 6px}
+.card li i{font-family:var(--body);font-size:14px}
+.spread{font:600 15px/1.35 var(--display);margin-top:10px;border-top:1px solid var(--rule);padding-top:8px}
+.rank{width:100%;border-collapse:collapse;font:400 12.5px/1.3 var(--mono)}
+.rank th{text-align:left;font-weight:500;color:var(--muted);border-bottom:2px solid var(--fg);padding:5px 6px 5px 0}
+.rank td{border-bottom:1px solid var(--rule);padding:7px 6px 7px 0;vertical-align:middle}
+.rank tr{cursor:pointer}
+.rank tr:hover td,.rank tr:focus-visible td{background:var(--panel)}
+.rank tr:focus-visible{outline:none}
+.rank .nm{font-weight:500}
+.rank .pr{color:var(--muted);font-size:11.5px;display:block;margin-top:2px}
+.rank .ck{white-space:nowrap;letter-spacing:2px}
+.ckd{display:inline-block;width:11px;height:11px;border-radius:50%;border:1.5px solid var(--fg);vertical-align:-1px;margin-right:2px}
+.fitbar{display:inline-block;height:8px;background:var(--hot);border-radius:1px;vertical-align:1px;margin-right:6px}
+.tablewrap{overflow-x:auto;max-height:420px;overflow-y:auto;border:1px solid var(--rule);background:var(--card)}
+.pull{font:600 26px/1.25 var(--display);border-left:6px solid var(--hot);padding:4px 0 4px 18px;margin:30px 0}
+.note{background:var(--panel);border:1px solid var(--rule);padding:14px 16px;font-size:16px;margin:22px 0}
+.note h3{margin-top:0}
+table.t{width:100%;border-collapse:collapse;font:400 13px/1.35 var(--mono)}
+table.t th{text-align:left;font-weight:500;color:var(--muted);border-bottom:2px solid var(--fg);padding:6px 8px 6px 0}
+table.t td{border-bottom:1px solid var(--rule);padding:7px 8px 7px 0;vertical-align:top}
+table.t td.num,table.t th.num{text-align:right}
+.tw{overflow-x:auto}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.cta a{font:500 13px/1 var(--mono);text-decoration:none;border:1px solid var(--fg);padding:11px 14px;border-radius:3px}
+.cta a.p{background:var(--hot);border-color:var(--hot);color:#fff}
+footer{border-top:6px double var(--fg);margin-top:56px;padding-top:16px;font:400 13px/1.55 var(--mono);color:var(--muted)}
+footer p{margin:0 0 10px}
+.theme{position:fixed;right:12px;bottom:12px;z-index:1001}
+.wd{width:14px;height:14px;background:var(--blue);border:2px solid var(--card);transform:rotate(45deg);box-shadow:0 0 0 1px var(--blue)}
+.leaflet-container{font:400 12px/1.4 var(--mono);background:var(--sea)}
+.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:var(--card);color:var(--fg);border-radius:3px;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.leaflet-popup-content{margin:10px 12px;font:400 12.5px/1.45 var(--mono)}
+.leaflet-popup-content b{font:600 15px/1.2 var(--display);display:block;margin-bottom:4px}
+.leaflet-popup-content a{color:var(--hot)}
+.leaflet-container a.leaflet-popup-close-button{color:var(--muted)}
+.leaflet-control-attribution{background:color-mix(in srgb,var(--card) 85%,transparent)!important;color:var(--muted)!important;font-size:10px}
+.leaflet-control-attribution a{color:var(--fg)!important}
+.leaflet-bar a{background:var(--card);color:var(--fg);border-bottom-color:var(--border)}
+.leaflet-bar a:hover{background:var(--panel)}
+.leaflet-bar{border:1px solid var(--border)!important}
+.leaflet-tooltip.lbl{background:transparent;border:0;box-shadow:none;font:500 11.5px/1.15 var(--mono);color:var(--fg);text-shadow:0 0 3px var(--card),0 0 3px var(--card),0 0 2px var(--card);padding:0}
+.leaflet-tooltip.lbl::before{display:none}
+.leaflet-tooltip.km{background:var(--fg);color:var(--bg);border:0;font:500 11.5px/1 var(--mono);padding:4px 6px;border-radius:2px;box-shadow:none}
+.leaflet-tooltip.km::before{display:none}
+@media (max-width:600px){#chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch}#chips .chip{flex:0 0 auto}}
+@media print{.theme,.controls{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="kicker"><b>Data study</b><span>History × landscape</span><span>Britain, AD 60 to 1016</span></div>
+<header class="hero">
+  <h1>Where was the <em>battle?</em></h1>
+  <svg class="mark" viewBox="-100 -100 200 200" aria-hidden="true"><g id="heroMark"></g></svg>
+  <p class="dek">Some of the most famous battles in British history have no known site. I gathered {{n_candidates|int}} places that have been proposed for {{n_battles|int}} of them, measured the ground at each, and asked a simple question: which ones fit what the earliest texts actually say?</p>
+</header>
+<div class="byline">Dr Tristan Hotham, Independent researcher · October 2026 · Data: Wikipedia, Victoria County History, OS Open Names, OS Open Rivers, Itiner-e, Atlas of Hillforts, Wikidata, AWS Terrain Tiles</div>
+
+<div class="stats">
+  <div><b class="h">{{n_candidates|int}}</b><span>proposed sites for {{n_battles|int}} early battles</span></div>
+  <div><b>{{headline.widest.km|int}} km</b><span>between the two farthest theories for Camlann</span></div>
+  <div><b class="h">{{headline.narrowest.km|f1}} km</b><span>spans every theory for Whalley, 798</span></div>
+  <div><b>{{wikidata.n_study_pinned|int}} of {{headline.n_unlocated|int}}</b><span>lost battles that Wikidata still pins to one exact point</span></div>
+</div>
+
+<p class="lede">Ask where Mount Badon was fought and you will be offered Bath, a hillfort near Swindon, a hillfort in Dorset, a hill in West Lothian and a village in Lincolnshire. Ask about Brunanburh, the great battle of 937, and you can choose between the Wirral, Dumfriesshire, the Humber and Cambridgeshire. For many battles before 1066 the chroniclers named a place that no longer exists, or a hill, a river or a fort with no further address.</p>
+<p>So I tried something modest. For each battle I wrote down only what the early texts actually say about the place: a hill, a siege, ships, a river, a lake, a named town nearby. I turned each clue into a check I can compute from open data, measured the ground at every proposed site, and scored them. There are no verdicts here. A site can fit the texts and still be wrong, and the strongest arguments, from place-names and archaeology, are ones I do not try to score. But the tally shows how much the texts constrain, and how far apart the theories are.</p>
+<p>The answer to the second question is: very far. The two most distant proposals for Camlann are {{battles.camlann.spread_km|int}} km apart, Badon's {{battles.badon.spread_km|int}} km and Brunanburh's {{battles.brunanburh.spread_km|int}} km. At the other end is a small battle in my own corner of Lancashire. Every theory for the Battle of Whalley in 798 fits inside {{headline.narrowest.km|f1}} km.</p>
+
+<h2><span class="n">01 · The map</span>Pick a battle</h2>
+<p>Choose a battle to see every proposed site, coloured by how well it fits the clues in the early texts. The dashed line joins the two theories farthest apart. The blue diamond is the single point Wikidata gives the battle, where it gives one. Tap a site for who proposed it, the source, and the measurements.</p>
+<div class="figure bleed">
+  <div class="controls" id="chips" role="group" aria-label="Choose a battle"></div>
+  <div class="mapgrid">
+    <div>
+      <div id="map" role="application" aria-label="Map of the proposed sites for the chosen battle"></div>
+      <div class="legend" id="legend">
+        <span><i style="background:var(--hot)"></i>Fits every clue</span>
+        <span><i style="background:var(--gold)"></i>Fits some</span>
+        <span><i style="background:var(--dot)"></i>Fits none</span>
+        <span><i style="background:var(--card);border:2px solid var(--muted)"></i>No clue to test</span>
+        <span><i class="dm" style="background:var(--blue)"></i>Wikidata's pin</span>
+        <span><i class="ln"></i>Farthest apart</span>
+      </div>
+      <div style="margin-top:8px"><button class="btn" id="broads" aria-pressed="false">Show Roman roads</button></div>
+    </div>
+    <div class="side">
+      <div class="card" id="bcard"></div>
+      <div class="tablewrap"><table class="rank" id="rank"></table></div>
+    </div>
+  </div>
+  <div class="src">Each site is placed from OS Open Names, the Atlas of Hillforts, Pleiades, OS Open Rivers, or a grid reference or coordinate given in a source; the source of every point is listed in data/candidates.csv. Many proposals name a village or a district, so the dot stands for the place, not a measured battlefield. Fit = the average of the checks, where a check scores 1 if met, ½ if met loosely and 0 if not.</div>
+</div>
+
+<h2><span class="n">02 · The spread</span>How far apart are the theories?</h2>
+<p>For the {{headline.n_multi|int}} lost battles with more than one proposed site, the chart shows the distance between the two that are farthest apart. The median is {{headline.median_spread_km|int}} km. {{headline.n_over_300km|Words}} span more than 300 km.</p>
+<div class="figure">
+  <div class="fig-h">Distance between the two most distant proposed sites</div>
+  <div class="fig-sub">Lost battles with two or more proposed sites. Tap a bar to show that battle on the map.</div>
+  <div class="chart" id="spreadc"></div>
+</div>
+<p>The spread is widest where the evidence is most literary. Camlann rests on a single line in the Welsh annals and a name that may mean "crooked bank", so it has been put on the River Camel in Cornwall, on Hadrian's Wall, in Snowdonia, at Salisbury and even in Angus. Badon and Brunanburh are not much better. The tight clusters belong to battles whose sources name a place that still exists: Tettenhall and Wednesfield are {{battles.tettenhall.spread_km|f1}} km apart, and the Whalley theories sit within {{headline.narrowest.km|f1}} km.</p>
+
+<h2><span class="n">03 · The texts</span>What do the sources actually say?</h2>
+<p>Very little. Across the {{n_battles|int}} battles I could find only {{headline.total_checks|int}} clues that can be tested on a map, and two battles, Catraeth and Degsastan, offer none at all: just a name. The commonest clues are a hill, because so many of the names end in <i>dun</i> or come to us in Latin as <i>mons</i>, and a named town nearby. After those come the sea, rivers, steep ground, open ground and a lake.</p>
+<div class="figure">
+  <div class="fig-h">How each proposed site fits the clues</div>
+  <div class="fig-sub">One dot per proposed site, placed by its fit score (0 = meets no clue, 1 = meets every clue). Battles in date order. Tap a dot for details.</div>
+  <div class="chart" id="fitc"></div>
+</div>
+<p>Of the {{headline.n_cands_scored|int}} sites that can be scored, {{headline.n_cands_full|int}} meet every clue for their battle, and only {{headline.n_cands_zero|int}} meet none. In {{headline.n_battles_tied_top|int}} of the {{headline.n_scored_battles|int}} scored battles, two or more sites tie for the top. In other words, the texts almost never pick a winner. They rule a few places out, and leave the argument to place-names, archaeology and judgement.</p>
+<p class="pull">The early texts rarely pick a winner. They rule a few places out, and leave the rest to argument.</p>
+
+<h3>Badon: a siege on a hill</h3>
+<p>Gildas, writing within living memory, calls it "the siege of Badon Hill". Bede also calls it a siege. So I asked two things of each site: is it on high ground, and is there a hillfort within reach to besiege? {{battles.badon.n_full_fit|Words}} sites meet both: Liddington Castle above Swindon, Badbury Rings in Dorset, Ringsbury Camp near Braydon and Arbury Hill in Northamptonshire. Bath, Geoffrey of Monmouth's answer, meets neither: the city sits in a valley, and the nearest hillfort in the Atlas is {{extra.bath_fort_km|f1}} km away. That does not rule out the hills above Bath, which score better, but it is a reminder that Geoffrey wrote six centuries after the event and invented freely.</p>
+
+<h3>Brunanburh: ships, or the Humber?</h3>
+<p>The poem in the Anglo-Saxon Chronicle, written within a generation, says the beaten Norsemen fled by ship over deep water to Dublin. Chroniclers of the twelfth century add that Olaf's fleet sailed into the Humber. These two clues pull in different directions. Sites on the Wirral fit the ships but are {{extra.bromborough_humber_km|int}} km from the Humber; sites inland in the East Riding fit the Humber but are further from open water. Only {{extra.brun_both_full_n|words}}, Barton-upon-Humber and Little Weighton, are close to both. No site meets all four clues; the best score is shared by Bromborough, Londesborough and Nunburnholme. The Humber clue comes from later writers, so I would not give it equal weight, but the table makes the tension plain.</p>
+
+<h3>Mons Graupius: a big hill near the sea</h3>
+<p>Tacitus puts the Caledonians on the slopes of a hill, rising in tiers, while Agricola's fleet works along the coast. Bennachie, the best-known candidate, is the only one with the full {{extra.graupius_relief_pass|int}} m of relief I ask for, but it is {{extra.bennachie_coast_km|int}} km from the sea. The hills near Stonehaven, Kempstone Hill, the Hill of Megray and the camp at Raedykes, are within sight of the sea and score best. Neither clue is strong: Tacitus says the fleet was sent ahead to spread fear, not that it sailed alongside the army.</p>
+
+<h3>Nechtansmere: mountains and a lake</h3>
+<p>Bede says the Northumbrians were lured "into the straits of inaccessible mountains". The Welsh name is Linn Garan, a lake. Dunnichen in Angus, the traditional site, has a drained moss for its lake but only modest hills. Alex Woolf's Dunachton on Loch Insh, in Badenoch, has both a loch and real hills nearby, though not quite the 300 m of relief within 3 km that I set for a full pass. Rescobie Loch, north of Dunnichen Hill, ties with it.</p>
+
+<h2><span class="n">04 · Close to home</span>Whalley, 798</h2>
+<p>The battle I know best is the one on my doorstep. Under the year 798 the Anglo-Saxon Chronicle records "a great battle at Whalley in Northumbria" in Lent, on 2 April, in which Alric son of Heardberht was killed "and many others with him". Symeon of Durham, working in the twelfth century from older northern annals, tells us who was fighting: Wada, one of the men who had murdered King Aethelred two years before, led his followers against the new king Eardwulf "in a place called by the English Billingahoh, near Walalege". Wada was beaten and fled.</p>
+<p>Whalley is Walalege. Billingahoh is the root of Billington, the next village down the Calder. The Victoria County History goes further: it reads Billingahoh as the name of a hill, the summit that the monks of Whalley later called Belsetenab and that is "now contracted simply to Whalley Nab", the wooded hill that rises across the river from the village. Billington Moor, the long ridge that the Victoria County History says ends at the Nab, is the site named in Wikipedia's article on Eardwulf. And there is local folklore too: the Reverend J. R. Luck, writing in 1896, recorded a story that Wada's dead were buried in the mound at Loe Hill, near the Ribble at Winckley. He dug into it and decided it was natural.</p>
+<div class="figure bleed">
+  <div class="fig-h">Every theory for the Battle of Whalley, 798</div>
+  <div class="fig-sub">The five proposed sites, the Rivers Calder and Ribble (OS Open Rivers), and the Roman road from Ribchester to Ilkley (Itiner-e). Tap a site for details.</div>
+  <div class="mapgrid">
+    <div><div id="wmap" role="application" aria-label="Map of the proposed sites of the Battle of Whalley"></div></div>
+    <div class="side"><div class="tw"><table class="t" id="wtab"></table></div>
+      <div class="src">Height from AWS Terrain Tiles (about 90 m cells), so summits are smoothed. "Billington Moor" is placed at the OS Open Names point for the moor; "Whalley Nab" at the OS point for Nab Wood on its slope.</div></div>
+  </div>
+</div>
+<p>All five sites lie within {{whalley.max_pair_km|f1}} km of each other. The two texts are not rivals: the Chronicle names the nearest well-known place, and Symeon names the exact spot near it. Both clues, near Whalley and on a hill-spur (the Old English <i>hoh</i>), are met in full only at Billington, which sits on the lower slopes below the Nab and the moor. Whalley village meets the hill clue loosely, because Whalley Nab rises within a kilometre of it. The Loe Hill mound, low by the Ribble, fits least well, which matches what its excavator thought of it.</p>
+<p>The setting also makes sense of the fight. The Roman road from Ribchester to Ilkley passes about {{whalley.cands.0.road_km|f1}} km from Whalley, and Ribchester itself is {{whalley.to_ribchester_km|f1}} km away. The Calder and the Ribble meet within Billington township. York, where Eardwulf had been crowned in 796, is {{whalley.to_york_km|int}} km to the east. A rebel force on the western edge of Northumbria, near an old road and the river crossings at the foot of a steep hill: that is my reading of the setting, not the texts'. What the data do show is that this is the one lost battle in the set where the argument is about which field, not which county.</p>
+
+<h2><span class="n">05 · The pins</span>Lost, but still on the map</h2>
+<p>Wikidata, the open database behind many maps and apps, holds {{wikidata.n_battles_bi|int}} battles with coordinates in Britain and Ireland, {{wikidata.n_before_1066|int}} of them dated before 1066. It gives a single exact point for {{wikidata.n_study_pinned|int}} of the {{headline.n_unlocated|int}} lost battles in this study. For Degsastan it records the location as unknown, which is honest. For the rest, {{wikidata.n_pins_within_2km|words}} of the pins sit within 2 km of one proposed site, usually the traditional one: Bath for Badon, Dunnichen for Nechtansmere, Ashingdon for Assandun. Brunanburh's pin is at Burnley, one of the minority theories.</p>
+<p>Two pins sit at no proposed site at all. Mons Graupius is pinned in the southern Grampians, {{battles.graupius.wikidata.nearest_km|f1}} km from the nearest place anyone has proposed. And the Battle of Edington, the one disputed battle on which most historians now agree, is pinned {{battles.edington.wikidata.nearest_km|f1}} km from the site given in Wikipedia's own article. A single dot looks like knowledge. For these battles, it is a guess dressed up as a fact.</p>
+<div class="figure">
+  <div class="fig-h">Where Wikidata pins each lost battle</div>
+  <div class="fig-sub">Distance from Wikidata's coordinate to the nearest proposed site.</div>
+  <div class="tw"><table class="t" id="wdtab"></table></div>
+</div>
+
+<h2><span class="n">06 · Method</span>How I did it, and what it cannot tell you</h2>
+<p><b>The battles.</b> I took {{headline.n_unlocated|int}} battles from Roman and early medieval Britain whose site is unknown or disputed, plus Heavenfield (634) as a control: its site has a continuous tradition, a church and a cross, and both of its clues are met there.</p>
+<p><b>The proposals.</b> I extracted every proposed site named in each battle's English Wikipedia article ({{extra.n_wikipedia_sources|int}} of the {{n_candidates|int}} proposals come from these), and added sites from the Victoria County History of Lancashire, the Scottish Archaeological Research Framework (ScARF), local folklore recorded online and an article on Camlann. Every proposal keeps its source URL. {{n_unplaced|Words}} proposals were too vague to place, such as "Sutherland" or "the Gask Ridge", and are listed but not mapped.</p>
+<p><b>The points.</b> I did not guess any coordinates. {{extra.n_points_os|int}} sites are placed from OS Open Names, {{extra.n_points_atlas|int}} from the Atlas of Hillforts, {{extra.n_points_grid|int}} from grid references given in a source, {{extra.n_points_coord|int}} from coordinates given in a source, {{extra.n_points_rivers|int}} on rivers from OS Open Rivers and {{extra.n_points_pleiades|int}} from Pleiades. Where a proposal names a village, the dot is the village; where it names a river, the dot is the middle of the river.</p>
+<p><b>The measures.</b> For each point: ground height and whether it, or the highest ground within 1 km, is in the top 10% (or 25%) of the ground within 2 to 3 km; relief (highest minus lowest ground) within 1 km and 3 km; distance to the sea, to the nearest named river, to the nearest named lake, to the nearest Roman road in Itiner-e (not available north of the Forth), and to the nearest hillfort in the Atlas of Hillforts.</p>
+<p><b>The checks.</b> Each clue becomes one check with a stated threshold, shown in the battle card above. A check scores 1 if met, ½ if met loosely, 0 if not; a site's fit is the average. The thresholds are mine and are deliberately simple. Changing them would change some ranks.</p>
+<div class="note">
+<h3>Caveats</h3>
+<p>This is a tally, not a verdict. It ignores the evidence that drives most identifications: place-name philology, archaeology, charters and local tradition. It gives a twelfth-century chronicle the same weight as a contemporary poem. The landscape has changed: lakes have been drained, woods cleared and coasts moved, and the elevation model smooths summits. The list of proposals depends on what Wikipedia's editors chose to include. And Wikidata's coverage of battles differs a great deal from country to country, so the {{wikidata.n_battles_bi|int}} battles it places in Britain and Ireland are not a complete count.</p>
+</div>
+
+<h2><span class="n">07 · Sources</span>Data and licences</h2>
+<ul>
+<li>Proposed sites and the clues: English Wikipedia articles on each battle (CC BY-SA 4.0), retrieved October 2026; the Victoria County History of Lancashire, vol. 6 (1911), via <a href="https://www.british-history.ac.uk/vch/lancs/vol6/pp349-360">British History Online</a>; <a href="https://scarf.scot/regional/sesarf/8-early-medieval/8-6-conflict/8-6-2-textual-sources-relating-to-battles/">ScARF</a>; <a href="https://www.themodernantiquarian.com/site/3015/loe-hill">The Modern Antiquarian, Loe Hill</a>; <a href="https://www.thecollector.com/where-was-battle-camlann-king-athur/">TheCollector, on Camlann</a>; <a href="https://historicplacenames.rcahmw.gov.uk/">List of Historic Place Names of Wales</a>.</li>
+<li>Place points: <a href="https://www.ordnancesurvey.co.uk/products/os-open-names">OS Open Names</a> and <a href="https://www.ordnancesurvey.co.uk/products/os-open-rivers">OS Open Rivers</a>, contains OS data © Crown copyright and database right, Open Government Licence v3; Lock, G. and Ralston, I. 2017, <a href="https://hillforts.arch.ox.ac.uk">Atlas of Hillforts of Britain and Ireland</a> (CC BY-SA 4.0); <a href="https://pleiades.stoa.org">Pleiades</a> (CC BY 3.0).</li>
+<li>Roman roads: de Soto, P., Pažout, A., Brughmans, T. and others 2025, <a href="https://zenodo.org/records/17122148">Itiner-e</a> (CC BY 4.0), with the datum correction from my <a href="https://tristan-hotham.github.io/how-roman-is-your-road/">How Roman is your road?</a> study.</li>
+<li>Elevation: <a href="https://registry.opendata.aws/terrain-tiles/">AWS Terrain Tiles</a> by Mapzen/Tilezen (SRTM, GMTED2010, ETOPO1 and national datasets; <a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md">attribution</a>). Coastline: Natural Earth (public domain).</li>
+<li>Battle coordinates: <a href="https://www.wikidata.org">Wikidata</a> (CC0).</li>
+</ul>
+<div class="cta">
+  <a class="p" href="https://doi.org/10.5281/zenodo.23677163">Read the paper</a>
+  <a href="https://github.com/Tristan-Hotham/where-was-the-battle">Data and code</a>
+  <a href="https://blog.tristanhotham.com/">More data stories</a>
+</div>
+<p>Related: <a href="https://tristan-hotham.github.io/within-sight/">Within Sight</a>, on whether hillforts could see each other, and <a href="https://tristan-hotham.github.io/how-roman-is-your-road/">How Roman is your road?</a></p>
+
+<footer>
+  <p>Dr Tristan Hotham, researcher on social media, campaigns and politics. Independent researcher. ORCID <a href="https://orcid.org/0000-0003-4931-9349">0000-0003-4931-9349</a>.</p>
+  <p>Cite as: Hotham, T. 2026. Where Was the Battle? Lost battlefields of early Britain. <a href="https://doi.org/10.5281/zenodo.23677163">https://doi.org/10.5281/zenodo.23677163</a></p>
+  <p>The derived data and text on this page are released under CC BY-SA 4.0, because the lists of proposed sites draw on Wikipedia and the Atlas of Hillforts. Code is MIT. Map tiles © Esri.</p>
+  <p>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</p>
+  <p><a href="https://blog.tristanhotham.com/">blog.tristanhotham.com</a></p>
+</footer>
+</div>
+<div class="tip" id="tip"></div>
+<button class="btn theme" id="theme" aria-label="Toggle dark mode">◐</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+/*DATA*/
+const NS = "http://www.w3.org/2000/svg";
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const el = (t, a = {}, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const tip = document.getElementById("tip");
+function showTip(h, x, y) { tip.innerHTML = h; tip.style.display = "block"; const w = tip.offsetWidth; x = Math.max(w / 2 + 8, Math.min(innerWidth - w / 2 - 8, x)); tip.style.left = x + scrollX + "px"; tip.style.top = y + scrollY + "px"; }
+function hideTip() { tip.style.display = "none"; }
+function hover(node, h, onclick) { node.style.cursor = "pointer"; node.setAttribute("tabindex", "0"); const s = () => { const r = node.getBoundingClientRect(); showTip(h, r.left + r.width / 2, r.top); }; node.addEventListener("pointerenter", s); node.addEventListener("focus", s); node.addEventListener("pointerleave", hideTip); node.addEventListener("blur", hideTip); node.addEventListener("click", e => { e.stopPropagation(); s(); if (onclick) onclick(); }); node.addEventListener("keydown", e => { if (e.key === "Enter" && onclick) onclick(); }); }
+document.addEventListener("click", hideTip);
+const redraws = [];
+function resp(box, render) { let last = 0; const go = (force) => { const w = Math.max(280, Math.round(box.clientWidth)); if (!force && Math.abs(w - last) < 4) return; last = w; box.innerHTML = ""; render(w, w < 560); }; new ResizeObserver(() => go()).observe(box); redraws.push(() => go(true)); go(); }
+const lbl = (svg, x, y, s, cls = "lab", anchor = "start") => { const t = el("text", { x, y, class: cls, "text-anchor": anchor }, svg); t.textContent = s; return t; };
+const R = D.R, B = R.battles;
+const isDark = () => { const r = document.documentElement; return r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; };
+document.getElementById("theme").onclick = () => { const r = document.documentElement; r.dataset.theme = isDark() ? "light" : "dark"; redraws.forEach(f => f()); (window.__restyle || []).forEach(f => f()); };
+window.__restyle = [];
+const fitCol = f => f == null ? "--card" : f >= 1 ? "--hot" : f > 0 ? "--gold" : "--dot";
+const CK = {}; D.ck.forEach(([b, c, k, s, v]) => { (CK[b + "|" + c] = CK[b + "|" + c] || {})[k] = [s, v]; });
+const byB = {}; D.c.forEach(c => (byB[c.battle] = byB[c.battle] || []).push(c));
+const hav = (a, b, c, d) => { const t = Math.PI / 180, dl = (c - a) * t, dn = (d - b) * t; const h = Math.sin(dl / 2) ** 2 + Math.cos(a * t) * Math.cos(c * t) * Math.sin(dn / 2) ** 2; return 2 * 6371 * Math.asin(Math.sqrt(h)); };
+const ckDot = s => s == null ? `<span class="ckd" style="border-style:dashed;opacity:.5" title="not available"></span>` : `<span class="ckd" style="background:${s >= 1 ? "var(--fg)" : s > 0 ? `linear-gradient(90deg,var(--fg) 50%,transparent 50%)` : "transparent"}" title="${s >= 1 ? "met" : s > 0 ? "met loosely" : "not met"}"></span>`;
+function thr(c) { const p = c.params, k = c.kind;
+  if (k === "hill") return `site or highest ground within 1 km in the top ${Math.round((1 - p[0]) * 100)}% of ground within 2 to 3 km (top ${Math.round((1 - p[1]) * 100)}% loosely)`;
+  if (k === "fort") return `hillfort within ${p[0]} km (${p[1]} km loosely)`;
+  if (k === "coast") return `sea within ${p[0]} km (${p[1]} km loosely)`;
+  if (k === "humber") return `Humber within ${p[0]} km (${p[1]} km loosely)`;
+  if (k === "liddel") return `Liddel Water within ${p[0]} km (${p[1]} km loosely)`;
+  if (k === "river") return `named river within ${p[0]} km (${p[1]} km loosely)`;
+  if (k === "water") return `named lake or loch within ${p[0]} km (${p[1]} km loosely)`;
+  if (k === "road") return `Roman road within ${p[0]} km (${p[1]} km loosely)`;
+  if (k === "relief") return `${p[0]} m of relief within 3 km (${p[1]} m loosely)`;
+  if (k === "flat") return `under ${p[0]} m of relief within 1 km (${p[1]} m loosely)`;
+  if (k === "near") return `within ${p[1]} km of ${p[0]} (${p[2]} km loosely)`;
+  if (k === "east") return `east of ${p[0]}`;
+  return ""; }
+function valTxt(c, v) { if (v == null) return "n/a"; const k = c.kind; if (k === "hill") return `rank ${Math.round(v * 100)}%`; if (k === "relief" || k === "flat") return Math.round(v) + " m"; if (k === "east") return v > 0 ? "east" : "west"; return (+v).toFixed(1) + " km"; }
+
+/* hero mark: two crossed swords over a dashed question of a map pin */
+(() => { const g = document.getElementById("heroMark");
+  el("circle", { cx: 0, cy: 0, r: 82, fill: "none", stroke: "var(--fg)", "stroke-width": 2, "stroke-dasharray": "5 6", opacity: .5 }, g);
+  [[-1, 1], [1, 1]].forEach(([sx]) => { const gg = el("g", { transform: `rotate(${sx * 42})` }, g);
+    el("path", { d: "M-5 -78 L0 -90 L5 -78 L5 30 L-5 30 Z", fill: "var(--fg)" }, gg);
+    el("rect", { x: -20, y: 30, width: 40, height: 7, rx: 2, fill: "var(--hot)" }, gg);
+    el("rect", { x: -4, y: 37, width: 8, height: 26, fill: "var(--fg)" }, gg);
+    el("circle", { cx: 0, cy: 67, r: 6, fill: "var(--hot)" }, gg); });
+  [[-46, 58], [52, 50], [-58, -30], [40, -52], [8, 76]].forEach(([x, y], i) => el("circle", { cx: x, cy: y, r: 5 - i * .4, fill: i < 2 ? "var(--hot)" : "var(--gold)", stroke: "var(--bg)", "stroke-width": 1.5 }, g));
+})();
+
+/* ===== main map ===== */
+let selectBattle = () => {};
+(() => {
+  const chips = document.getElementById("chips");
+  D.order.forEach(id => { const b = B[id]; const btn = document.createElement("button"); btn.className = "btn chip"; btn.dataset.b = id; btn.setAttribute("aria-pressed", "false");
+    btn.innerHTML = `${esc(b.name)}<small>${esc(b.date.replace("about ", "c. ").replace("AD ", ""))}</small>`; btn.onclick = () => selectBattle(id); chips.appendChild(btn); });
+  const bcard = document.getElementById("bcard"), rank = document.getElementById("rank");
+  if (!window.L) { document.getElementById("map").innerHTML = '<p style="padding:16px;font:400 13px/1.5 var(--mono)">The map library did not load. The panel and charts still work.</p>'; }
+  let map, tiles, layer, roadsL, showRoads = false, cur = null;
+  const C = {}; const col = v => C[v] || (C[v] = css(v));
+  if (window.L) {
+    map = L.map("map", { scrollWheelZoom: false, zoomSnap: .25, minZoom: 4, maxZoom: 15 }).fitBounds([[50.0, -8.0], [58.6, 1.8]]);
+    map.attributionControl.setPrefix('<a href="https://leafletjs.com">Leaflet</a>');
+    map.on("focus", () => map.scrollWheelZoom.enable()); map.on("blur", () => map.scrollWheelZoom.disable());
+    const tileUrl = () => `https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/${isDark() ? "World_Dark_Gray_Base" : "World_Light_Gray_Base"}/MapServer/tile/{z}/{y}/{x}`;
+    tiles = L.tileLayer(tileUrl(), { maxZoom: 16, attribution: "Tiles &copy; Esri · Sites: see sources" }).addTo(map);
+    map.createPane("roads"); map.getPane("roads").style.zIndex = 405;
+    layer = L.layerGroup().addTo(map); roadsL = L.layerGroup().addTo(map);
+    window.__restyle.push(() => { for (const k in C) delete C[k]; tiles.setUrl(tileUrl()); drawRoads(); if (cur) selectBattle(cur, true); });
+    matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => window.__restyle.forEach(f => f()));
+  }
+  function drawRoads() { if (!roadsL) return; roadsL.clearLayers(); if (!showRoads) return; L.polyline(D.L.roads, { pane: "roads", color: col("--plum"), weight: 1.4, opacity: .55, interactive: false }).addTo(roadsL); }
+  const br = document.getElementById("broads"); br.onclick = () => { showRoads = !showRoads; br.setAttribute("aria-pressed", showRoads); drawRoads(); };
+  function popup(c) { const b = B[c.battle], ck = CK[c.battle + "|" + c.candidate] || {};
+    const rows = b.checks.map(k => { const [s, v] = ck[k.id] || [null, null]; return `${ckDot(s)} ${esc(k.label)}: ${valTxt(k, v)}`; }).join("<br>");
+    return `<b>${esc(c.candidate)}</b>${esc(c.proposer)}<br><span style="color:var(--muted)">Case: ${esc(c.basis)}</span><br>${rows ? rows + "<br>" : ""}Fit: ${c.fit == null ? "no testable clue" : (+c.fit).toFixed(2)}<br><span style="color:var(--muted)">Height ${Math.round(c.elev_m)} m · relief ${Math.round(c.relief_3km_m)} m within 3 km · sea ${(+c.coast_km).toFixed(0)} km${c.road_km != null ? ` · Roman road ${(+c.road_km).toFixed(1)} km` : ""}</span><br><a href="${esc(c.source_url)}" target="_blank" rel="noopener">Source</a> · <span style="color:var(--muted)">${esc(c.geocode.replace(/https?:\/\/\S+/, "a cited page"))}</span>`; }
+  const marks = {};
+  function declutter() { if (!map) return; const placed = [];
+    Object.values(marks).sort((a, b) => b._fit - a._fit).forEach(m => { const p = map.latLngToContainerPoint(m.getLatLng()), w = m._lab.length * 7 + 14;
+      const bx = [p.x - 10, p.y - 10, p.x + w, p.y + 10];
+      const hit = placed.some(q => !(bx[2] < q[0] || bx[0] > q[2] || bx[3] < q[1] || bx[1] > q[3]));
+      if (hit) m.closeTooltip(); else { m.openTooltip(); placed.push(bx); placed.push([p.x - 10, p.y - 10, p.x + 10, p.y + 10]); } }); }
+  if (map) map.on("zoomend moveend", declutter);
+  selectBattle = (id, keepView) => {
+    cur = id; const b = B[id], cs = [...byB[id]].sort((a, z) => (z.fit ?? -1) - (a.fit ?? -1) || a.candidate.localeCompare(z.candidate));
+    chips.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x.dataset.b === id));
+    // card
+    const wd = b.wikidata;
+    bcard.innerHTML = `<h4>${esc(b.full)}</h4><div class="meta">${esc(b.date)} · ${esc(b.who)}${b.control ? " · <b style='font:500 12px var(--mono);color:var(--moss)'>control: site agreed</b>" : ""}</div>` +
+      `<div class="lbl">What the texts say</div><ul>${b.texts.map(t => `<li><i>${esc(t.says)}</i> <span style="color:var(--muted)">(${esc(t.source)})</span></li>`).join("")}</ul>` +
+      `<div class="lbl">Clues I can test</div>${b.checks.length ? `<ul>${b.checks.map(k => `<li><b style="font-weight:500">${esc(k.label)}</b>: ${esc(k.clue)}. <span style="color:var(--muted)">Check: ${esc(thr(k))}.</span></li>`).join("")}</ul>` : `<div style="color:var(--muted)">None. The texts give a name and nothing else that can be tested on a map.</div>`}` +
+      `<div class="spread">${b.n > 1 ? `${b.n} proposed sites, up to ${Math.round(b.spread_km)} km apart (${esc(b.far_pair[0])} to ${esc(b.far_pair[1])}).` : `One proposed site.`}${wd && !wd.unknown ? ` Wikidata's pin is ${wd.nearest_km.toFixed(1)} km from ${esc(wd.nearest)}.` : wd && wd.unknown ? " Wikidata records the location as unknown." : ""}</div>`;
+    // table
+    rank.innerHTML = `<thead><tr><th>Site</th><th>Clues</th><th>Fit</th></tr></thead>`;
+    const tb = document.createElement("tbody"); rank.appendChild(tb);
+    cs.forEach(c => { const tr = document.createElement("tr"); tr.tabIndex = 0; const ck = CK[id + "|" + c.candidate] || {};
+      tr.innerHTML = `<td><span class="nm">${esc(c.candidate)}</span><span class="pr">${esc(c.proposer)}</span></td><td class="ck">${b.checks.map(k => ckDot((ck[k.id] || [null])[0])).join("") || "<span style='color:var(--muted)'>none</span>"}</td><td style="white-space:nowrap">${c.fit == null ? "<span style='color:var(--muted)'>n/a</span>" : `<span class="fitbar" style="width:${Math.max(2, c.fit * 46)}px;background:var(${fitCol(c.fit)})"></span>${(+c.fit).toFixed(2)}`}</td>`;
+      const go = () => { if (map && marks[c.candidate]) { map.flyTo([c.lat, c.lon], Math.max(map.getZoom(), 9), { duration: reduce ? 0 : .7 }); marks[c.candidate].openPopup(); } };
+      tr.onclick = go; tr.onkeydown = e => { if (e.key === "Enter") go(); }; tb.appendChild(tr); });
+    if (!map) return;
+    layer.clearLayers(); for (const k in marks) delete marks[k];
+    const pts = cs.map(c => [c.lat, c.lon]);
+    if (b.n > 1) { const [a, z] = b.far_pair.map(n => cs.find(c => c.candidate === n));
+      const cen = b.centroid; cs.forEach(c => L.polyline([cen, [c.lat, c.lon]], { color: col("--muted"), weight: 1, opacity: .55, interactive: false }).addTo(layer));
+      const ln = L.polyline([[a.lat, a.lon], [z.lat, z.lon]], { color: col("--fg"), weight: 2, dashArray: "6 6", opacity: .85, interactive: false }).addTo(layer);
+      L.tooltip({ permanent: true, direction: "center", className: "km" }).setLatLng([(a.lat + z.lat) / 2, (a.lon + z.lon) / 2]).setContent(`${Math.round(b.spread_km)} km`).addTo(layer); }
+    if (wd && !wd.unknown) { const m = L.marker([wd.lat, wd.lon], { icon: L.divIcon({ className: "", html: '<div class="wd"></div>', iconSize: [14, 14], iconAnchor: [7, 7] }) }).addTo(layer);
+      m.bindPopup(`<b>Wikidata's pin</b>${esc(wd.qid)}: one coordinate for ${esc(b.full)}<br>${wd.nearest_km.toFixed(1)} km from the nearest proposed site (${esc(wd.nearest)})<br><a href="https://www.wikidata.org/wiki/${esc(wd.qid)}" target="_blank" rel="noopener">Wikidata record</a>`); pts.push([wd.lat, wd.lon]); }
+    cs.forEach(c => { const m = L.circleMarker([c.lat, c.lon], { radius: c.precision === "area" ? 8 : 9, color: col("--fg"), weight: c.precision === "site" ? 2 : 1.2, dashArray: c.precision === "area" ? "3 3" : null, fillColor: col(fitCol(c.fit)), fillOpacity: c.fit == null ? 1 : .92 }).addTo(layer);
+      m.bindPopup(popup(c), { maxWidth: 290, autoPanPadding: [20, 20] }); marks[c.candidate] = m;
+      m._lab = c.candidate.replace(/ \(.*\)$/, ""); m._fit = c.fit ?? -1;
+      m.bindTooltip(m._lab, { permanent: true, direction: "right", offset: [9, 0], className: "lbl" }); });
+    declutter();
+    if (!keepView) { if (pts.length === 1) map.flyTo(pts[0], 10, { duration: reduce ? 0 : .8 }); else map.flyToBounds(L.latLngBounds(pts).pad(.18), { duration: reduce ? 0 : .8, maxZoom: 12 }); }
+  };
+  window.__selectBattle = id => selectBattle(id);
+  selectBattle("badon");
+})();
+
+/* ===== spread chart ===== */
+resp(document.getElementById("spreadc"), (W, nar) => {
+  const rows = R.headline.spread_order, rowH = 30, m = { l: nar ? 112 : 140, r: 70, t: 6, b: 30 }, H = rows.length * rowH + m.t + m.b;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Distance between the two most distant proposed sites for each battle" }, document.getElementById("spreadc"));
+  const max = 700, X = v => m.l + v / max * (W - m.l - m.r);
+  [0, 100, 200, 300, 400, 500, 600, 700].forEach(t => { if (nar && t % 200) return; el("line", { x1: X(t), x2: X(t), y1: m.t, y2: H - m.b, stroke: "var(--rule)" }, svg); lbl(svg, X(t), H - m.b + 16, t + (t === 0 ? "" : " km"), "lab m s", "middle"); });
+  rows.forEach(([id, km], i) => { const y = m.t + i * rowH, b = B[id];
+    lbl(svg, m.l - 10, y + 19, b.name, "lab", "end");
+    const r = el("rect", { x: m.l, y: y + 6, width: Math.max(2, X(km) - m.l), height: rowH - 12, fill: id === "whalley" ? "var(--hot)" : km > 300 ? "var(--hot)" : "var(--gold)", opacity: id === "whalley" ? 1 : .85 }, svg);
+    hover(r, `<b>${esc(b.full)}</b><br>${b.n} proposed sites<br>${esc(b.far_pair[0])} to ${esc(b.far_pair[1])}: ${km.toFixed(1)} km`, () => { window.__selectBattle(id); document.getElementById("map").scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" }); });
+    lbl(svg, X(km) + 6, y + 19, km < 10 ? km.toFixed(1) + " km" : Math.round(km) + " km", "lab b s"); });
+});
+
+/* ===== fit strip chart ===== */
+resp(document.getElementById("fitc"), (W, nar) => {
+  const ids = D.order, rowH = 34, m = { l: nar ? 112 : 140, r: 16, t: 24, b: 30 }, H = ids.length * rowH + m.t + m.b;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Fit score of each proposed site, by battle" }, document.getElementById("fitc"));
+  const X = v => m.l + 10 + v * (W - m.l - m.r - 20);
+  [0, .25, .5, .75, 1].forEach(t => { el("line", { x1: X(t), x2: X(t), y1: m.t - 6, y2: H - m.b, stroke: "var(--rule)" }, svg); lbl(svg, X(t), H - m.b + 16, t === 0 ? "fits none" : t === 1 ? "fits all" : t.toFixed(2), "lab m s", "middle"); });
+  ids.forEach((id, i) => { const y = m.t + i * rowH + rowH / 2, b = B[id];
+    lbl(svg, m.l - 10, y + 4, b.name, "lab", "end");
+    if (!b.n_checks) { lbl(svg, X(0), y + 4, "no testable clue", "lab m s"); return; }
+    const groups = {}; byB[id].forEach(c => (groups[c.fit] = groups[c.fit] || []).push(c));
+    Object.entries(groups).forEach(([f, cs]) => cs.forEach((c, j) => { const off = (j - (cs.length - 1) / 2) * (nar ? 6 : 8);
+      const d = el("circle", { cx: X(+f) + (cs.length > 3 ? off : 0), cy: y + (cs.length > 3 ? 0 : off), r: nar ? 4.6 : 5.4, fill: `var(${fitCol(+f)})`, stroke: "var(--bg)", "stroke-width": 1.2 }, svg);
+      hover(d, `<b>${esc(c.candidate)}</b><br>${esc(b.full)}<br>Fit ${(+f).toFixed(2)}`, () => { window.__selectBattle(id); }); })); });
+});
+
+/* ===== Whalley close-up ===== */
+(() => {
+  const cs = byB.whalley, W = R.whalley, tab = document.getElementById("wtab");
+  tab.innerHTML = `<thead><tr><th>Site</th><th class="num">From Whalley</th><th class="num">Height</th><th class="num">Fit</th></tr></thead><tbody>${W.cands.map(c => `<tr><td>${esc(c.name)}</td><td class="num">${c.from_whalley_km.toFixed(1)} km</td><td class="num">${Math.round(c.elev_m)} m</td><td class="num" style="color:var(${fitCol(c.fit)});font-weight:500">${c.fit.toFixed(2)}</td></tr>`).join("")}</tbody>`;
+  if (!window.L) return;
+  const C = {}; const col = v => C[v] || (C[v] = css(v));
+  const map = L.map("wmap", { scrollWheelZoom: false, zoomSnap: .25, minZoom: 10, maxZoom: 16 });
+  map.attributionControl.setPrefix('<a href="https://leafletjs.com">Leaflet</a>');
+  map.on("focus", () => map.scrollWheelZoom.enable()); map.on("blur", () => map.scrollWheelZoom.disable());
+  const tileUrl = () => `https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/${isDark() ? "World_Dark_Gray_Base" : "World_Light_Gray_Base"}/MapServer/tile/{z}/{y}/{x}`;
+  const tiles = L.tileLayer(tileUrl(), { maxZoom: 16, attribution: "Tiles &copy; Esri · Rivers: OS Open Rivers · Road: Itiner-e" }).addTo(map);
+  const g = L.layerGroup().addTo(map);
+  function draw() { g.clearLayers();
+    Object.entries(D.L.wh_rivers).forEach(([n, ls]) => L.polyline(ls, { color: col("--blue"), weight: 3, opacity: .7, interactive: false }).addTo(g));
+    L.polyline(D.L.wh_roads, { color: col("--plum"), weight: 3, opacity: .75, dashArray: "8 5", interactive: false }).addTo(g);
+    cs.forEach(c => { const m = L.circleMarker([c.lat, c.lon], { radius: 10, color: col("--fg"), weight: 2, fillColor: col(fitCol(c.fit)), fillOpacity: .95 }).addTo(g);
+      m.bindTooltip(c.candidate.replace(/ \(.*\)$/, "").replace(", Winckley lowes", ""), { permanent: true, direction: c.candidate.startsWith("Whalley N") ? "right" : c.candidate === "Billington" ? "left" : "right", offset: [c.candidate === "Billington" ? -11 : 11, 0], className: "lbl" });
+      m.bindPopup(`<b>${esc(c.candidate)}</b>${esc(c.proposer)}<br>Height ${Math.round(c.elev_m)} m · fit ${(+c.fit).toFixed(2)}<br><a href="${esc(c.source_url)}" target="_blank" rel="noopener">Source</a>`, { maxWidth: 280 }); });
+    [["River Ribble", 53.8338, -2.4895], ["River Calder", 53.8262, -2.392], ["Roman road", 53.8215, -2.462]].forEach(([t, a, b]) => L.tooltip({ permanent: true, direction: "center", className: "lbl" }).setLatLng([a, b]).setContent(`<span style="color:var(--muted);font-style:italic">${t}</span>`).addTo(g));
+  }
+  draw(); map.fitBounds(L.latLngBounds(cs.map(c => [c.lat, c.lon])).pad(.6));
+  window.__restyle.push(() => { for (const k in C) delete C[k]; tiles.setUrl(tileUrl()); draw(); });
+})();
+
+/* ===== Wikidata table ===== */
+(() => { const rows = D.order.filter(id => !B[id].control && B[id].wikidata).map(id => [id, B[id].wikidata]);
+  document.getElementById("wdtab").innerHTML = `<thead><tr><th>Battle</th><th>Nearest proposed site</th><th class="num">Distance</th></tr></thead><tbody>` +
+    rows.sort((a, b) => ((b[1].nearest_km ?? -1) - (a[1].nearest_km ?? -1))).map(([id, w]) => `<tr><td>${esc(B[id].name)}</td><td>${w.unknown ? "<span style='color:var(--muted)'>location recorded as unknown</span>" : esc(w.nearest)}</td><td class="num" style="${w.nearest_km > 10 ? "color:var(--hot);font-weight:500" : ""}">${w.unknown ? "" : w.nearest_km.toFixed(1) + " km"}</td></tr>`).join("") + `</tbody>`;
+})();
+</script>
+</body>
+</html>
