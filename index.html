@@ -454,5 +454,6 @@ resp(document.getElementById("fitc"), (W, nar) => {
     rows.sort((a, b) => ((b[1].nearest_km ?? -1) - (a[1].nearest_km ?? -1))).map(([id, w]) => `<tr><td>${esc(B[id].name)}</td><td>${w.unknown ? "<span style='color:var(--muted)'>location recorded as unknown</span>" : esc(w.nearest)}</td><td class="num" style="${w.nearest_km > 10 ? "color:var(--hot);font-weight:500" : ""}">${w.unknown ? "" : w.nearest_km.toFixed(1) + " km"}</td></tr>`).join("") + `</tbody>`;
 })();
 </script>
+<script src="https://tristan-hotham.github.io/assets/site-nav.js" defer></script>
 </body>
 </html>
